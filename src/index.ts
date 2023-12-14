@@ -8,7 +8,11 @@ const main = () => {
   alert("Home");
   console.log(greet());
   setTimeout(() => {
-    window.location.href = "login";
+    if (
+      !window.location.href.includes("login") ||
+      !window.location.href.includes("signup")
+    )
+      window.location.href = "login";
   }, 500);
 };
 
