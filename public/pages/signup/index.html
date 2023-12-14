@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/css/intlTelInput.css">
+    <link rel="stylesheet" href="../../assets/font/font.css">
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+
+<body>
+    <main class="main_container h-screen text-white max-h-screen overflow-hidden overflow-y-auto ltr">
+        <section
+            class="container mx-auto pt-[2rem] flex justify-between flex-col items-center  md:flex-row transition-all ">
+            <div class="self-start hidden sm:block">
+                <div
+                    class="back-btn flex items-center gap-2 py-[2rem] cursor-pointer hover:opacity-[0.8] transition-all duration-[0.3s]">
+                    <img src="../../assets/angle-left-circle.svg" alt="back arrow">
+                    <span>Back</span>
+                </div>
+            </div>
+            <div class="max-h-[95vh] rounded-[1rem] ">
+                <div class="h-[95vh] ">
+                    <div
+                        class="form_container bg-[#191919] w-[100%] sm:w-[34rem] md:w-[32rem] rounded-[1rem] py-[2rem] px-[1.2rem]">
+                        <!-- FORM -->
+                        <img class="w-[38%] mx-auto mb-4" src="../../assets/sa-logo.svg" alt="Google-logo">
+
+                        <form action="" autocomplete="off">
+                            <!-- TITLE -->
+                            <span class="text-[1rem] font-[400] text-gray mb-[0.5rem]">Welcome to the Academy</span>
+                            <h3 class="form_title text-[1.6rem] font-[400] text-white mt-[0.5rem] px-2">SIGN UP</h3>
+                            <!-- CHANNELS -->
+                            <div class="flex justify-between items-center gap-[0.5rem] sm:gap-[1rem] mt-[2rem]">
+                                <a class="h-[3rem] p-[0.7] sm:p-1 flex-grow sm:me-2 flex justify-center items-center pe-2 gap-[2px] sm:gap-1 rounded-[0.5rem] bg-white "
+                                    href="#">
+                                    <img class="scale-[0.7] sm:scale-[1]" src="../../assets/Nafaz.svg" alt="Nafaz-logo">
+                                    <span
+                                        class="text-[0.7rem] sm:text-[0.9rem] md:text-[1rem] font-[600] text-black">Continue
+                                        with Nafaz</span>
+                                </a>
+                                <a class="h-[3rem] p-[0.7] sm:p-1 flex justify-center items-center gap-2 rounded-[0.5rem] bg-[#5865F2]"
+                                    href="#">
+                                    <img class="scale-[0.7] sm:scale-[1]" src="../../assets/Discord.svg"
+                                        alt="Discord-logo">
+                                </a>
+                                <a class="h-[3rem] p-[0.7] sm:p-1 flex justify-center items-center gap-2 rounded-[0.5rem] bg-[#EEF0F2]"
+                                    href="#">
+                                    <img class="scale-[0.7] sm:scale-[1]" src="../../assets/Google.svg"
+                                        alt="Google-logo">
+                                </a>
+                            </div>
+                            <!-- INPUTS -->
+                            <div class="mt-[2rem] flex flex-col ">
+                                <div class="flex gap-0 sm:gap-[8px] flex-col sm:flex-row">
+                                    <div class="relative w-full">
+                                        <div class="flex flex-col w-full flex-grow">
+                                            <input class="form_input w-full" type="text" name="first_name"
+                                                tid="first_name" id="first_name" placeholder="First Name *">
+                                            <div class="input_info"></div>
+                                            <label for="first_name" class="absolute top-4 opacity-0 label">First Name *
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="relative w-full">
+                                        <div class="flex flex-col w-full flex-grow">
+                                            <input class="form_input w-full" type="text" name="last_name"
+                                                tid="last_name" id="last_name" placeholder="Last Name *">
+                                            <div class="input_info"></div>
+                                            <label for="last_name" class="absolute top-4 opacity-0 label">Last Name *
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="relative w-full">
+                                    <!-- <input class="form_input w-full" type="text" name="phone_number" > -->
+
+                                    <input class="form_input w-full" type="tel" name="phone_number" tid="phone_number"
+                                        id="phone_number" placeholder="Phone Number *">
+                                    <div class="input_info"></div>
+                                    <label for="phone_number" class="absolute top-4 opacity-0 label">Phone Number *
+                                    </label>
+                                </div>
+                                <div class="relative w-full">
+                                    <input class="form_input w-full" type="email" name="email" tid="email" id="email"
+                                        placeholder="Email *">
+                                    <div class="input_info"></div>
+                                    <label for="email" class="absolute top-4 opacity-0 label">Email *
+                                    </label>
+                                </div>
+
+                                <div class="relative w-full">
+                                    <input class="form_input w-full" type="password" name="password" tid="password"
+                                        id="password" placeholder="Password">
+                                    <div class="input_info grid gap-2 grid-cols-2 mt-2"></div>
+                                    <label for="password" class="absolute top-4 opacity-0 label">Password *
+                                    </label>
+                                    <img src="../../assets/openEye.svg" alt="password eye"
+                                        class="absolute h-[20px] top-[23px] cursor-pointer eye_icon" id="password_eye">
+                                </div>
+
+                                <input type="submit" btnid="submit" type="submit" class="form_btn mt-[1rem] disabled"
+                                    value="Sign Up" />
+
+                                <p class="mx-auto text-sm my-[1rem] text-[#909092]">Have an account!
+                                    <a href="#" class="text-primary">Sign In</a>
+                                </p>
+
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="../signup/index.js"></script>
+</body>
+
+</html>
