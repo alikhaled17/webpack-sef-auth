@@ -5,7 +5,6 @@ export const greet = () => {
 };
 
 const main = () => {
-  alert("Home");
   console.log(greet());
   setTimeout(() => {
     if (
