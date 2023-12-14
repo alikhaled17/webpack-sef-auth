@@ -30,14 +30,14 @@ module.exports = {
   plugins: [
     new CopyPlugin({
       patterns: [
-        {
-          from: `./src/pages/login/index.html`,
-          to: `pages/login/index.html`,
-        },
-        {
-          from: `./src/pages/signup/index.html`,
-          to: `pages/signup/index.html`,
-        },
+        // {
+        //   from: `./src/pages/login/index.html`,
+        //   to: `pages/login/index.html`,
+        // },
+        // {
+        //   from: `./src/pages/signup/index.html`,
+        //   to: `pages/signup/index.html`,
+        // },
         { from: `./src/index.html`, to: `index.html` },
         { from: "./src/assets", to: "assets" },
       ],
