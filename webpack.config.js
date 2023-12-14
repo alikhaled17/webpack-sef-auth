@@ -3,13 +3,13 @@ const CopyPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  // entry: "./src/index.ts",
+  entry: "./src/index.ts",
   mode: "development",
-  entry: {
-    app: "./src/index.ts",
-    login: "./src/pages/login/index.ts",
-    signup: "./src/pages/signup/index.ts",
-  },
+  // entry: {
+  //   app: "./src/index.ts",
+  //   login: "./src/pages/login/index.ts",
+  //   signup: "./src/pages/signup/index.ts",
+  // },
   module: {
     rules: [
       {
@@ -49,7 +49,7 @@ module.exports = {
   output: {
     publicPath: "public",
     path: path.resolve(__dirname, "public"),
-    filename: "[name]/index.js",
+    filename: "index.js",
     clean: true,
   },
 };
