@@ -330,7 +330,7 @@ select:-webkit-autofill:focus {
 }
 
 .main_container.rtl .iti__flag-box,
-.iti__country-name {
+.main_container.rtl .iti__country-name {
     margin-right: 0;
     margin-left: 6px;
 }
