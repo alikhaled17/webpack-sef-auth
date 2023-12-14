@@ -635,6 +635,9 @@ video {
 .gap-2 {
   gap: 0.5rem;
 }
+.gap-4 {
+  gap: 1rem;
+}
 .gap-\[0\.5rem\] {
   gap: 0.5rem;
 }
@@ -671,18 +674,10 @@ video {
   background-color: rgba(238, 240, 242, 1);
   background-color: rgba(238, 240, 242, var(--tw-bg-opacity));
 }
-.bg-pink-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgba(236, 72, 153, 1);
-  background-color: rgba(236, 72, 153, var(--tw-bg-opacity));
-}
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgba(249, 251, 253, 1);
   background-color: rgba(249, 251, 253, var(--tw-bg-opacity));
-}
-.p-5 {
-  padding: 1.25rem;
 }
 .p-\[0\.7\] {
   padding: 0.7;
@@ -816,7 +811,7 @@ body {
 }
 
 .main_container {
-    background: url(public13e5f8afcf569db6a0fa.png) rgba(0, 0, 0, 0.5);
+    background: url("./assets/auth-bg.png") rgba(0, 0, 0, 0.5);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

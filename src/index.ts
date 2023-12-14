@@ -1,4 +1,4 @@
-// import "../styles/index.css";
+import "./index.css";
 
 export const greet = () => {
   return "Hello Home!";
@@ -7,6 +7,9 @@ export const greet = () => {
 const main = () => {
   alert("Home");
   console.log(greet());
+  setTimeout(() => {
+    window.location.href = "login";
+  }, 500);
 };
 
 main();

@@ -4,7 +4,7 @@ import {
   Regex,
   TextValidatorStratgy,
 } from "../../models/FormValidator";
-import "../../styles/index.css";
+// import "../../index.css";
 
 const textValidator = new TextValidatorStratgy();
 

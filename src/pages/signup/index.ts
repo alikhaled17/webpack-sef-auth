@@ -5,7 +5,7 @@ import {
   Regex,
   TextValidatorStratgy,
 } from "../../models/FormValidator";
-import "../../styles/index.css";
+// import "../../index.css";
 
 import intlTelInput from "intl-tel-input";
 
