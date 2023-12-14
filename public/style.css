@@ -587,6 +587,12 @@ video {
 .max-h-screen {
   max-height: 100vh;
 }
+.max-h-\[90vh\] {
+  max-height: 90vh;
+}
+.max-h-\[90\] {
+  max-height: 90;
+}
 .w-\[100\%\] {
   width: 100%;
 }
@@ -649,6 +655,9 @@ video {
 }
 .overflow-y-auto {
   overflow-y: auto;
+}
+.overflow-y-scroll {
+  overflow-y: scroll;
 }
 .rounded-\[0\.5rem\] {
   border-radius: 0.5rem;
