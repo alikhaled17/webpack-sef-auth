@@ -1,1 +1,1 @@
-(()=>{"use strict";alert("Home"),console.log("Hello Home!"),setTimeout((function(){window.location.href="login"}),500)})();
+(()=>{"use strict";alert("Home"),console.log("Hello Home!"),setTimeout((function(){window.location.href.includes("login")&&window.location.href.includes("signup")||(window.location.href="login")}),500)})();
