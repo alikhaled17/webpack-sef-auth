@@ -41,7 +41,7 @@ module.exports = {
           };
         }),
         { from: `./src/index.html`, to: `./app/index.html` },
-        { from: "./assets", to: "assets" },
+        { from: "./src/assets", to: "app/assets" },
       ],
     }),
     new MiniCssExtractPlugin({
