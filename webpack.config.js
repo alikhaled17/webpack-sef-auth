@@ -14,7 +14,7 @@ module.exports = {
       {
         test: /\.ts$/,
         use: "ts-loader",
-        include: [path.resolve(__dirname, "src")],
+        include: path.resolve(__dirname, "src"),
       },
       {
         test: /\.css$/i,
@@ -58,7 +58,7 @@ module.exports = {
     publicPath: "public",
     path: path.resolve(__dirname, "public"),
     filename: ({ runtime }) => {
-      return runtime === "app" ? "index.js" : "[name]/index.bundle.js";
+      return runtime === "app" ? "index.js" : "[name]/index.js";
     },
     clean: true,
   },
