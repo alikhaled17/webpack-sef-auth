@@ -1,1 +1,3 @@
-(()=>{"use strict";alert("Home "),console.log("Hello Home!")})();
+(() => {
+  alert("Home "), console.log("Hello Home!");
+})();
