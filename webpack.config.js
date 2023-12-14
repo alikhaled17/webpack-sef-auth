@@ -58,7 +58,7 @@ module.exports = {
     publicPath: "public",
     path: path.resolve(__dirname, "public"),
     filename: ({ runtime }) => {
-      return runtime === "app" ? "index.js" : "[name]/index.js";
+      return runtime === "app" ? "index.js" : "[name]/index.bundle.js";
     },
     clean: true,
   },
