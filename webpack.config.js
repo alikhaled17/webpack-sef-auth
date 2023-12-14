@@ -3,13 +3,13 @@ const CopyPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  entry: "./src/index.ts",
+  // entry: "./src/index.ts",
   mode: "development",
-  // entry: {
-  //   app: "./src/index.ts",
-  //   login: "./src/pages/login/index.ts",
-  //   signup: "./src/pages/signup/index.ts",
-  // },
+  entry: {
+    app: "./src/index.ts",
+    login: "./src/pages/login/index.ts",
+    signup: "./src/pages/signup/index.ts",
+  },
   module: {
     rules: [
       {
@@ -30,14 +30,14 @@ module.exports = {
   plugins: [
     new CopyPlugin({
       patterns: [
-        // {
-        //   from: `./src/pages/login/index.html`,
-        //   to: `pages/login/index.html`,
-        // },
-        // {
-        //   from: `./src/pages/signup/index.html`,
-        //   to: `pages/signup/index.html`,
-        // },
+        {
+          from: `./src/pages/login/index.html`,
+          to: `pages/login/index.html`,
+        },
+        {
+          from: `./src/pages/signup/index.html`,
+          to: `pages/signup/index.html`,
+        },
         { from: `./src/index.html`, to: `index.html` },
         { from: "./src/assets", to: "assets" },
       ],
@@ -49,7 +49,7 @@ module.exports = {
   output: {
     publicPath: "public",
     path: path.resolve(__dirname, "public"),
-    filename: "index.js",
+    filename: "[name]/index.js",
     clean: true,
   },
 };
