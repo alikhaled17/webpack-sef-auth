@@ -5,7 +5,7 @@ export const greet = () => {
 };
 
 const main = () => {
-  alert("Home ");
+  alert("Home");
   console.log(greet());
 };
 
