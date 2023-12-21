@@ -386,6 +386,12 @@ video {
 [hidden] {
   display: none;
 }
+    .smoothy {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  transition-duration: .1s;
+}
 
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
@@ -593,8 +599,14 @@ video {
 .w-\[38\%\] {
   width: 38%;
 }
-.w-\[98\%\] {
-  width: 98%;
+.w-\[48px\] {
+  width: 48px;
+}
+.w-\[98vw\] {
+  width: 98vw;
+}
+.w-\[clamp\(118px\2c _9\.25rem\2c _178px\)\] {
+  width: max(118px, min(9.25rem, 178px));
 }
 .w-full {
   width: 100%;
@@ -610,6 +622,9 @@ video {
 }
 .cursor-pointer {
   cursor: pointer;
+}
+.resize {
+  resize: both;
 }
 .grid-cols-2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -703,8 +718,20 @@ video {
 .text-\[14px\] {
   font-size: 14px;
 }
+.text-\[16px\] {
+  font-size: 16px;
+}
 .text-\[1rem\] {
   font-size: 1rem;
+}
+.text-\[clamp\(14px\2c _1\.125rem\2c _18px\)\] {
+  font-size: max(14px, min(1.125rem, 18px));
+}
+.text-\[clamp\(14px\2c _1rem\2c _16px\)\] {
+  font-size: max(14px, min(1rem, 16px));
+}
+.text-\[clamp\(18px\2c _2rem\2c _32px\)\] {
+  font-size: max(18px, min(2rem, 32px));
 }
 .text-sm {
   font-size: 0.875rem;
@@ -762,7 +789,6 @@ video {
 .duration-\[0\.3s\] {
   transition-duration: 0.3s;
 }
-
 
 :root {
     --primary-color: rgba(133, 48, 172, 1);
@@ -866,6 +892,7 @@ body {
     flex-grow: 1;
     margin-top: 0.6rem;
     padding: 0.5rem 0.9rem 0.8rem;
+    font-size: 16px;
 }
 
 input:-webkit-autofill,
@@ -928,6 +955,9 @@ select:-webkit-autofill:focus {
     right: 4%;
 }
 
+.input_info {
+    font-size: 12px;
+}
 
 .succes_check {
     color: #909092;
@@ -975,6 +1005,7 @@ select:-webkit-autofill:focus {
     border-radius: 0.5rem;
     border: 1px solid transparent;
     flex-grow: 1;
+    font-size: 16px;
 }
 
 .form_btn.disabled {
@@ -1126,6 +1157,10 @@ select:-webkit-autofill:focus {
     background-color: var(--night-base-clear);
 }
 
+.texto {
+    font-size: max(1rem, min(0.5vw, 2rem));
+}
+
 .hover\:text-primary:hover {
   --tw-text-opacity: 1;
   color: rgba(102, 36, 131, 1);
@@ -1154,6 +1189,10 @@ select:-webkit-autofill:focus {
     width: 34rem;
   }
 
+  .sm\:w-\[90vw\] {
+    width: 90vw;
+  }
+
   .sm\:scale-\[1\] {
     --tw-scale-x: 1;
     --tw-scale-y: 1;
@@ -1167,6 +1206,10 @@ select:-webkit-autofill:focus {
 
   .sm\:gap-1 {
     gap: 0.25rem;
+  }
+
+  .sm\:gap-\[1px\] {
+    gap: 1px;
   }
 
   .sm\:gap-\[1rem\] {

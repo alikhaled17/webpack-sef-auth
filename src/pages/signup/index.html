@@ -19,8 +19,9 @@
 </head>
 
 <body>
-    <main class="main_container flex items-center h-screen text-white max-h-screen overflow-hidden overflow-y-auto ltr">
-        <section class="container mx-auto  flex justify-between flex-col items-center  md:flex-row transition-all ">
+    <main
+        class="main_container smoothy flex items-center h-screen text-white max-h-screen overflow-hidden overflow-y-auto ltr">
+        <section class="container mx-auto flex justify-between flex-col items-center  md:flex-row transition-all ">
             <div class="self-start hidden sm:block">
                 <div
                     class="back-btn flex items-center gap-2 py-[2rem] cursor-pointer hover:opacity-[0.8] transition-all duration-[0.3s]">
@@ -31,31 +32,33 @@
             <div class="max-h-[90vh] rounded-[1rem] overflow-hidden ">
                 <div class=" max-h-[90vh] overflow-hidden overflow-y-auto">
                     <div
-                        class="form_container bg-[#191919] w-[100%] sm:w-[34rem] md:w-[32rem] rounded-[1rem] py-[2rem] px-[1.2rem]">
+                        class=" form_container bg-[#191919] w-[98vw] sm:w-[90vw] md:w-[32rem] rounded-[1rem] py-[2rem] px-[1.2rem]">
                         <!-- FORM -->
-                        <img class="w-[38%] mx-auto mb-4" src="../assets/sa-logo.svg" alt="Google-logo">
+                        <img class="w-[clamp(118px,_9.25rem,_178px)] mx-auto mb-4" src="../assets/sa-logo.svg"
+                            alt="Google-logo">
 
                         <form action="" autocomplete="off">
                             <!-- TITLE -->
-                            <span class="text-[1rem] font-[400] text-gray mb-[0.5rem]">Welcome to the Academy</span>
-                            <h3 class="form_title text-[1.6rem] font-[400] text-white mt-[0.5rem] px-2">SIGN UP</h3>
-                            <!-- CHANNELS -->
+                            <span class="text-[clamp(14px,_1.125rem,_18px)] font-[400] text-gray mb-[0.5rem]">Welcome to
+                                the
+                                Academy</span>
+                            <h3
+                                class="form_title text-[clamp(18px,_2rem,_32px)]  font-[400] text-white mt-[0.5rem] px-2">
+                                SIGN UP</h3> <!-- CHANNELS -->
                             <div class="flex justify-between items-center gap-[0.5rem] sm:gap-[1rem] mt-[2rem]">
-                                <a class="h-[3rem] p-[0.7] sm:p-1 flex-grow sm:me-2 flex justify-center items-center pe-2 gap-[2px] sm:gap-1 rounded-[0.5rem] bg-white "
+                                <a class="h-[3rem] p-[0.7] sm:p-1 flex-grow sm:me-2 flex justify-center items-center gap-0 sm:gap-[1px] rounded-[0.5rem] bg-white "
                                     href="#">
-                                    <img class="scale-[0.7] sm:scale-[1]" src="../assets/Nafaz.svg" alt="Nafaz-logo">
-                                    <span
-                                        class="text-[0.7rem] sm:text-[0.9rem] md:text-[1rem] font-[600] text-black">Continue
+                                    <img class="w-[48px]" src="../assets/Nafaz.svg" alt="Nafaz-logo">
+                                    <span class="text-[clamp(14px,_1rem,_16px)] font-[600] text-black">Continue
                                         with Nafaz</span>
                                 </a>
                                 <a class="h-[3rem] p-[0.7] sm:p-1 flex justify-center items-center gap-2 rounded-[0.5rem] bg-[#5865F2]"
                                     href="#">
-                                    <img class="scale-[0.7] sm:scale-[1]" src="../assets/Discord.svg"
-                                        alt="Discord-logo">
+                                    <img class="w-[48px]" src="../assets/Discord.svg" alt="Discord-logo">
                                 </a>
                                 <a class="h-[3rem] p-[0.7] sm:p-1 flex justify-center items-center gap-2 rounded-[0.5rem] bg-[#EEF0F2]"
                                     href="#">
-                                    <img class="scale-[0.7] sm:scale-[1]" src="../assets/Google.svg" alt="Google-logo">
+                                    <img class="w-[48px]" src="../assets/Google.svg" alt="Google-logo">
                                 </a>
                             </div>
                             <!-- INPUTS -->
@@ -110,7 +113,7 @@
                                 <input type="submit" btnid="submit" type="submit" class="form_btn mt-[1rem] disabled"
                                     value="Sign Up" />
 
-                                <p class="mx-auto text-sm my-[1rem] text-[#909092]">Have an account!
+                                <p class="mx-auto text-[16px] my-[1rem] text-[#909092]">Have an account!
                                     <a href="login" class="text-primary">Sign In</a>
                                 </p>
 

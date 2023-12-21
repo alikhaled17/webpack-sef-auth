@@ -3,6 +3,12 @@
 @tailwind utilities;
 
 
+@layer base {
+    .smoothy {
+        @apply transition-all duration-[.1s];
+    }
+}
+
 :root {
     --primary-color: rgba(133, 48, 172, 1);
     --night-base-clear: #1E1E1F;
@@ -97,6 +103,7 @@ body {
     flex-grow: 1;
     margin-top: 0.6rem;
     padding: 0.5rem 0.9rem 0.8rem;
+    font-size: 16px;
 }
 
 input:-webkit-autofill,
@@ -156,6 +163,9 @@ select:-webkit-autofill:focus {
     right: 4%;
 }
 
+.input_info {
+    font-size: 12px;
+}
 
 .succes_check {
     color: #909092;
@@ -202,6 +212,7 @@ select:-webkit-autofill:focus {
     border-radius: 0.5rem;
     border: 1px solid transparent;
     flex-grow: 1;
+    font-size: 16px;
 }
 
 .form_btn.disabled {
@@ -344,4 +355,8 @@ select:-webkit-autofill:focus {
 .iti__country-list {
     border: none;
     background-color: var(--night-base-clear);
+}
+
+.texto {
+    font-size: clamp(1rem, 0.5vw, 2rem);
 }
