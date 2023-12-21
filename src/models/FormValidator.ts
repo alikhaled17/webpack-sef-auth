@@ -1,3 +1,5 @@
+import intlTelInput from "intl-tel-input";
+
 export const Regex = {
   notEmpty: /\S/,
   noSpace: /^\S*$/,
@@ -44,7 +46,11 @@ export class HtmlEl {
 }
 
 export interface IValidatorStratgy {
-  getErrorElements(validators: Validator[], value: string): HTMLElement[];
+  getErrorElements(
+    validators: Validator[],
+    value: string,
+    inputElement?: HTMLInputElement
+  ): HTMLElement[];
 }
 
 export class PasswordValidatorStratgy implements IValidatorStratgy {
@@ -67,6 +73,27 @@ export class TextValidatorStratgy implements IValidatorStratgy {
   getErrorElements(validators: Validator[], value: string): HTMLElement[] {
     for (const validator of validators) {
       const condition = validator.condition(value);
+      if (!condition)
+        return [new HtmlEl("small", validator.msg, ["text-[#FF8C67]"]).Element];
+    }
+  }
+}
+
+export class PhoneNumberValidatorStratgy implements IValidatorStratgy {
+  getErrorElements(
+    validators: Validator[],
+    value: string,
+    inputElement: HTMLInputElement
+  ): HTMLElement[] {
+    const dialCodeBoxValue: string = document
+      .querySelector(".dial-code-box")
+      .innerHTML.trim();
+    inputElement.value = value.replace(dialCodeBoxValue, "");
+
+    for (const validator of validators) {
+      const condition = validator.condition(
+        `${dialCodeBoxValue}${value.replace(dialCodeBoxValue, "")}`
+      );
       if (!condition)
         return [new HtmlEl("small", validator.msg, ["text-[#FF8C67]"]).Element];
     }
@@ -112,13 +139,12 @@ export class FormInput {
   }
 
   private checkInputChange(): void {
-    console.log("Hello", this.element.value);
-
     let InfoElements: HTMLElement[] = [];
 
     InfoElements = this.validatorType.getErrorElements(
       this.validators,
-      this.element.value
+      this.element.value,
+      this.element
     );
     Helpers.ShowErrorMessage(InfoElements, this.element, this.inputInfoElement);
   }

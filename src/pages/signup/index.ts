@@ -2,6 +2,7 @@ import {
   EyeHandler,
   FormInput,
   PasswordValidatorStratgy,
+  PhoneNumberValidatorStratgy,
   Regex,
   TextValidatorStratgy,
 } from "../../models/FormValidator";
@@ -11,6 +12,7 @@ import intlTelInput from "intl-tel-input";
 
 const textValidator = new TextValidatorStratgy();
 const passwordValidator = new PasswordValidatorStratgy();
+const phoneValidator = new PhoneNumberValidatorStratgy();
 const LoginInputs: FormInput[] = [
   new FormInput("first_name", textValidator, [
     {
@@ -40,10 +42,10 @@ const LoginInputs: FormInput[] = [
       msg: "Last name must be at least 50 characters long.",
     },
   ]),
-  new FormInput("phone_number", textValidator, [
+  new FormInput("phone_number", phoneValidator, [
     {
       condition: (value: string) =>
-        Regex.phoneNumbers.test(value.trim()) && value.trim().length >= 10,
+        Regex.phoneNumbers.test(value.trim()) && value.trim()?.length >= 10,
       msg: "Phone numbers must start with country code and must be at least 10 digits long.",
     },
   ]),
@@ -81,6 +83,22 @@ const LoginInputs: FormInput[] = [
   ]),
 ];
 
+const addingDialCode = (code: string): void => {
+  if (document.querySelector(".dial-code-box")) {
+    document.querySelector(".dial-code-box").innerHTML = code;
+    return;
+  }
+  const flagContainer: HTMLElement = document.querySelector(
+    ".iti__selected-flag"
+  );
+  let dialCode: HTMLElement = document.createElement("span");
+  dialCode.style.padding = `0 5px `;
+  dialCode.innerHTML = code;
+  dialCode.classList.add("dial-code-box");
+  flagContainer.style.width = "90px";
+  flagContainer.appendChild(dialCode);
+};
+
 const main = () => {
   for (const input of LoginInputs) {
     input.ActivateEvent("keyup");
@@ -99,12 +117,7 @@ const main = () => {
   });
   phoneInput.addEventListener("countrychange", () => {
     if (iti.getSelectedCountryData().dialCode) {
-      phoneInput.value = `+${iti.getSelectedCountryData().dialCode}`;
-      if (
-        !phoneInput.value.indexOf(`+${iti.getSelectedCountryData().dialCode}`)
-      ) {
-        return;
-      }
+      addingDialCode(`+${iti.getSelectedCountryData().dialCode}`);
     }
   });
 };
