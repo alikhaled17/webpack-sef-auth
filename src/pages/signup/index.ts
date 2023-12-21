@@ -46,7 +46,7 @@ const LoginInputs: FormInput[] = [
     {
       condition: (value: string) =>
         Regex.phoneNumbers.test(value.trim()) && value.trim()?.length >= 10,
-      msg: "Phone numbers must start with country code and must be at least 10 digits long.",
+      msg: "Phone numbers must be at least 10 digits long.",
     },
   ]),
   new FormInput("email", textValidator, [
