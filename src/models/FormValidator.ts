@@ -168,9 +168,12 @@ export class FormInput {
 
   public ActivateEvent(event: keyof HTMLElementEventMap): void {
     this.element.addEventListener(event, () => {
-      if (event === "keyup") this.checkInputChange();
+      // if (event === "keyup");
       if (event === "focus") this.focusInput();
-      if (event === "blur") this.blurInput();
+      if (event === "blur") {
+        this.blurInput();
+        this.checkInputChange();
+      }
     });
   }
 }

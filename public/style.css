@@ -688,6 +688,9 @@ video {
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
+.text-center {
+  text-align: center;
+}
 .text-\[14px\] {
   font-size: 14px;
 }
@@ -706,6 +709,9 @@ video {
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
+}
+.text-\[12px\] {
+  font-size: 12px;
 }
 .font-\[400\] {
   font-weight: 400;
@@ -935,7 +941,7 @@ select:-webkit-autofill:focus {
 }
 
 .succes_check {
-    color: #909092;
+    color: rgba(71, 184, 129, 1);
     margin-top: 8px;
 }
 

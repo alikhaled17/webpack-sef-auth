@@ -34,7 +34,7 @@ const LoginInputs: FormInput[] = [
 
 const main = () => {
   for (const input of LoginInputs) {
-    input.ActivateEvent("keyup");
+    // input.ActivateEvent("keyup");
     input.ActivateEvent("focus");
     input.ActivateEvent("blur");
   }

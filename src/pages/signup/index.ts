@@ -20,26 +20,27 @@ const LoginInputs: FormInput[] = [
       msg: "Please enter your first name.",
     },
     {
-      condition: (value: string) => Regex.onlyCharacters.test(value.trim()),
+      condition: (value: string) => Regex.charNumbers.test(value.trim()),
       msg: "First name can only contain letters.",
     },
     {
-      condition: (value: string) => value.trim().length <= 50,
-      msg: "First name must be at least 50 characters long.",
+      condition: (value: string) => value.trim().length <= 25,
+      msg: "First name must be at least 25 characters long.",
     },
   ]),
   new FormInput("last_name", textValidator, [
     {
-      condition: (value: string) => Regex.notEmpty.test(value.trim()),
-      msg: "Please enter your last name.",
-    },
-    {
-      condition: (value: string) => Regex.onlyCharacters.test(value.trim()),
+      condition: (value: string) => {
+        if (value.trim().length) {
+          return Regex.charNumbers.test(value.trim());
+        }
+        return true;
+      },
       msg: "Last name can only contain letters.",
     },
     {
-      condition: (value: string) => value.trim().length <= 50,
-      msg: "Last name must be at least 50 characters long.",
+      condition: (value: string) => value.trim().length <= 25,
+      msg: "Last name must be at least 25 characters long.",
     },
   ]),
   new FormInput("phone_number", phoneValidator, [
@@ -101,7 +102,7 @@ const addingDialCode = (code: string): void => {
 
 const main = () => {
   for (const input of LoginInputs) {
-    input.ActivateEvent("keyup");
+    // input.ActivateEvent("keyup");
     input.ActivateEvent("focus");
     input.ActivateEvent("blur");
   }
@@ -115,6 +116,7 @@ const main = () => {
       callback("sa");
     },
   });
+
   phoneInput.addEventListener("countrychange", () => {
     if (iti.getSelectedCountryData().dialCode) {
       addingDialCode(`+${iti.getSelectedCountryData().dialCode}`);

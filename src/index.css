@@ -173,7 +173,7 @@ select:-webkit-autofill:focus {
 }
 
 .succes_check {
-    color: #909092;
+    color: rgba(71, 184, 129, 1);
     margin-top: 8px;
 }
 
