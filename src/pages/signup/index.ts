@@ -1,18 +1,18 @@
 import {
   EyeHandler,
   FormInput,
+  FormValidator,
   PasswordValidatorStratgy,
   PhoneNumberValidatorStratgy,
   Regex,
   TextValidatorStratgy,
 } from "../../models/FormValidator";
-// import "../../index.css";
-
 import intlTelInput from "intl-tel-input";
 
 const textValidator = new TextValidatorStratgy();
 const passwordValidator = new PasswordValidatorStratgy();
 const phoneValidator = new PhoneNumberValidatorStratgy();
+
 const LoginInputs: FormInput[] = [
   new FormInput("first_name", textValidator, [
     {
@@ -20,24 +20,11 @@ const LoginInputs: FormInput[] = [
       msg: "Please enter your first name.",
     },
     {
-      condition: (value: string) => Regex.charNumbers.test(value.trim()),
-      msg: "First name can only contain letters.",
-    },
-    {
       condition: (value: string) => value.trim().length <= 25,
       msg: "First name must be at least 25 characters long.",
     },
   ]),
   new FormInput("last_name", textValidator, [
-    {
-      condition: (value: string) => {
-        if (value.trim().length) {
-          return Regex.charNumbers.test(value.trim());
-        }
-        return true;
-      },
-      msg: "Last name can only contain letters.",
-    },
     {
       condition: (value: string) => value.trim().length <= 25,
       msg: "Last name must be at least 25 characters long.",
@@ -101,14 +88,16 @@ const addingDialCode = (code: string): void => {
 };
 
 const main = () => {
+  // form validation checker
   for (const input of LoginInputs) {
     // input.ActivateEvent("keyup");
     input.ActivateEvent("focus");
     input.ActivateEvent("blur");
   }
+  const SignUpForm = new FormValidator("signup");
+  SignUpForm.ActivateEvent("change");
 
-  document.querySelector("#password_eye").addEventListener("click", EyeHandler);
-
+  // phone number input handler
   const phoneInput: HTMLInputElement = document.querySelector("#phone_number");
   const iti = intlTelInput(phoneInput, {
     initialCountry: "auto",
@@ -116,12 +105,18 @@ const main = () => {
       callback("sa");
     },
   });
-
   phoneInput.addEventListener("countrychange", () => {
     if (iti.getSelectedCountryData().dialCode) {
       addingDialCode(`+${iti.getSelectedCountryData().dialCode}`);
     }
   });
+  phoneInput.addEventListener("input", () => {
+    const filteredValue = phoneInput.value.replace(/[^0-9]/g, "");
+    phoneInput.value = filteredValue;
+  });
+
+  // password eye handler
+  document.querySelector("#password_eye").addEventListener("click", EyeHandler);
 };
 
 main();

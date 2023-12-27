@@ -218,10 +218,14 @@ select:-webkit-autofill:focus {
     border: 1px solid transparent;
     flex-grow: 1;
     font-size: 16px;
+    transition: all .2s ease-in-out;
+
+    cursor: pointer;
 }
 
-.form_btn.disabled {
-    background-color: var(--primary-primary-50)
+.form_btn:disabled {
+    background-color: var(--primary-primary-50);
+    cursor: auto;
 }
 
 /* check box */

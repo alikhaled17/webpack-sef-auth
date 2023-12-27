@@ -1,5 +1,3 @@
-import intlTelInput from "intl-tel-input";
-
 export const Regex = {
   notEmpty: /\S/,
   noSpace: /^\S*$/,
@@ -27,6 +25,11 @@ export const Regex = {
   url: /^(http|https):\/\/[\S]+(\.[\S]+)+[/#?]?.*$/,
 };
 
+export interface TIdInput extends HTMLInputElement {
+  isValid?: boolean;
+  tId?: string;
+}
+
 export class HtmlEl {
   private element: HTMLElement;
   constructor(
@@ -49,12 +52,28 @@ export interface IValidatorStratgy {
   getErrorElements(
     validators: Validator[],
     value: string,
-    inputElement?: HTMLInputElement
+    inputElement?: TIdInput
   ): HTMLElement[];
 }
 
 export class PasswordValidatorStratgy implements IValidatorStratgy {
-  getErrorElements(validators: Validator[], value: string): HTMLElement[] {
+  getErrorElements(
+    validators: Validator[],
+    value: string,
+    inputElement?: TIdInput
+  ): HTMLElement[] {
+    let isPasswordValid: boolean = false;
+    ((): void => {
+      for (let i = 0; i < validators.length; i++) {
+        const condition = validators[i].condition(value);
+        if (!condition) {
+          isPasswordValid = false;
+          return;
+        }
+        isPasswordValid = true;
+      }
+    })();
+
     const arr = [];
     for (const validator of validators) {
       const condition = validator.condition(value);
@@ -65,16 +84,24 @@ export class PasswordValidatorStratgy implements IValidatorStratgy {
         ]).Element
       );
     }
+    inputElement.isValid = isPasswordValid;
     return arr;
   }
 }
 
 export class TextValidatorStratgy implements IValidatorStratgy {
-  getErrorElements(validators: Validator[], value: string): HTMLElement[] {
+  getErrorElements(
+    validators: Validator[],
+    value: string,
+    inputElement?: TIdInput
+  ): HTMLElement[] {
     for (const validator of validators) {
       const condition = validator.condition(value);
-      if (!condition)
+      if (!condition) {
+        inputElement.isValid = false;
         return [new HtmlEl("small", validator.msg, ["text-[#FF8C67]"]).Element];
+      }
+      inputElement.isValid = true;
     }
   }
 }
@@ -83,7 +110,7 @@ export class PhoneNumberValidatorStratgy implements IValidatorStratgy {
   getErrorElements(
     validators: Validator[],
     value: string,
-    inputElement: HTMLInputElement
+    inputElement: TIdInput
   ): HTMLElement[] {
     const dialCodeBoxValue: string = document
       .querySelector(".dial-code-box")
@@ -94,8 +121,11 @@ export class PhoneNumberValidatorStratgy implements IValidatorStratgy {
       const condition = validator.condition(
         `${dialCodeBoxValue}${value.replace(dialCodeBoxValue, "")}`
       );
-      if (!condition)
+      if (!condition) {
+        inputElement.isValid = false;
         return [new HtmlEl("small", validator.msg, ["text-[#FF8C67]"]).Element];
+      }
+      inputElement.isValid = true;
     }
   }
 }
@@ -106,7 +136,7 @@ export type Validator = {
 };
 
 export class FormInput {
-  private element: HTMLInputElement;
+  private element: TIdInput;
   private inputInfoElement: HTMLElement;
   private elementContainer: HTMLElement;
   private placeHolderValue: string;
@@ -116,7 +146,7 @@ export class FormInput {
     private validatorType: IValidatorStratgy,
     private validators: Validator[]
   ) {
-    this.element = document.querySelector(`[tid="${tId}"]`)!;
+    this.element = document.querySelector(`[tid="${tId}"]`);
     this.inputInfoElement = document.querySelector(
       `[tid="${tId}"]~div.input_info`
     )!;
@@ -131,6 +161,8 @@ export class FormInput {
       .replace(/\n|\r/g, "")
       .trim();
 
+    this.element.isValid = false;
+
     if (!this.element) throw new Error("Invalid element");
   }
 
@@ -140,13 +172,13 @@ export class FormInput {
 
   private checkInputChange(): void {
     let InfoElements: HTMLElement[] = [];
-
     InfoElements = this.validatorType.getErrorElements(
       this.validators,
       this.element.value,
       this.element
     );
-    Helpers.ShowErrorMessage(InfoElements, this.element, this.inputInfoElement);
+
+    Helpers.ShowErrorMessage(InfoElements, this.inputInfoElement);
   }
 
   private focusInput(): void {
@@ -181,7 +213,6 @@ export class FormInput {
 export class Helpers {
   public static ShowErrorMessage(
     infoElements: HTMLElement[],
-    element: HTMLInputElement,
     infoElementsContainer: HTMLElement
   ) {
     infoElementsContainer.innerHTML = "";
@@ -202,3 +233,43 @@ export const EyeHandler = () => {
     eyeIcon.src = eyeIcon.src.replace("closeEye.svg", "openEye.svg");
   }
 };
+
+export class FormValidator {
+  private form: HTMLFormElement;
+  private inputs: TIdInput[] = [];
+  private submitBtn: HTMLInputElement;
+
+  constructor(formId: string) {
+    this.form = document.querySelector(`[formId="${formId}"]`)!;
+    this.form
+      .querySelectorAll(`input:not([type="submit"]):not([type="checkbox"])`)!
+      .forEach((input: TIdInput) => {
+        this.inputs.push(input as TIdInput);
+      });
+    this.submitBtn = this.form.querySelector(`input[type="submit"]`)!;
+  }
+
+  private CheckFormValidation = (): void => {
+    setTimeout(() => {
+      for (let i = 0; i < this.inputs.length; i++) {
+        const input: TIdInput = this.inputs[i];
+        console.log({
+          name: input.getAttribute("name"),
+          input,
+          isValid: input.isValid,
+        });
+        if (!input.isValid) {
+          this.submitBtn.disabled = true;
+          return;
+        }
+        this.submitBtn.disabled = false;
+      }
+    }, 100);
+  };
+
+  public ActivateEvent(event: keyof HTMLElementEventMap): void {
+    this.form.addEventListener(event, () => {
+      this.CheckFormValidation();
+    });
+  }
+}

@@ -4,7 +4,8 @@ import {
   Regex,
   TextValidatorStratgy,
 } from "../../models/FormValidator";
-// import "../../index.css";
+
+import { FormValidator } from "../../models/FormValidator";
 
 const textValidator = new TextValidatorStratgy();
 
@@ -33,12 +34,15 @@ const LoginInputs: FormInput[] = [
 ];
 
 const main = () => {
+  // form validation checker
   for (const input of LoginInputs) {
-    // input.ActivateEvent("keyup");
     input.ActivateEvent("focus");
     input.ActivateEvent("blur");
   }
+  const SignInForm = new FormValidator("signin");
+  SignInForm.ActivateEvent("change");
 
+  // password eye handler
   document.querySelector("#password_eye").addEventListener("click", EyeHandler);
 };
 

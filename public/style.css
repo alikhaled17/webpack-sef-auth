@@ -691,6 +691,9 @@ video {
 .text-center {
   text-align: center;
 }
+.text-\[12px\] {
+  font-size: 12px;
+}
 .text-\[14px\] {
   font-size: 14px;
 }
@@ -709,9 +712,6 @@ video {
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
-}
-.text-\[12px\] {
-  font-size: 12px;
 }
 .font-\[400\] {
   font-weight: 400;
@@ -987,11 +987,15 @@ select:-webkit-autofill:focus {
     border: 1px solid transparent;
     flex-grow: 1;
     font-size: 16px;
+    transition: all .2s ease-in-out;
+
+    cursor: pointer;
 }
 
-.form_btn.disabled {
+.form_btn:disabled {
     background-color: #DFC8EA;
-    background-color: var(--primary-primary-50)
+    background-color: var(--primary-primary-50);
+    cursor: auto;
 }
 
 /* check box */
