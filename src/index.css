@@ -175,11 +175,13 @@ select:-webkit-autofill:focus {
 .succes_check {
     color: rgba(71, 184, 129, 1);
     margin-top: 8px;
+    display: flex;
+    align-items: center;
 }
 
 .succes_check:before {
     content: "✓";
-    display: inline-block;
+    flex-shrink: 0;
     color: #47B881;
     background-color: #B5E3CD;
     width: 20px;
@@ -194,11 +196,14 @@ select:-webkit-autofill:focus {
 .fail_check {
     color: #909092;
     margin-top: 8px;
+    display: flex;
+    align-items: center;
+
 }
 
 .fail_check:before {
     content: "✓";
-    display: inline-block;
+    flex-shrink: 0;
     color: #F4F3F6;
     background-color: #AEAEAE;
     width: 20px;
