@@ -144,7 +144,8 @@ export class FormInput {
   constructor(
     tId: string,
     private validatorType: IValidatorStratgy,
-    private validators: Validator[]
+    private validators: Validator[],
+    private isRequired: boolean = true
   ) {
     this.element = document.querySelector(`[tid="${tId}"]`);
     this.inputInfoElement = document.querySelector(
@@ -161,7 +162,7 @@ export class FormInput {
       .replace(/\n|\r/g, "")
       .trim();
 
-    this.element.isValid = false;
+    this.element.isValid = !isRequired;
 
     if (!this.element) throw new Error("Invalid element");
   }
@@ -253,18 +254,13 @@ export class FormValidator {
     setTimeout(() => {
       for (let i = 0; i < this.inputs.length; i++) {
         const input: TIdInput = this.inputs[i];
-        console.log({
-          name: input.getAttribute("name"),
-          input,
-          isValid: input.isValid,
-        });
         if (!input.isValid) {
           this.submitBtn.disabled = true;
           return;
         }
         this.submitBtn.disabled = false;
       }
-    }, 100);
+    }, 50);
   };
 
   public ActivateEvent(event: keyof HTMLElementEventMap): void {

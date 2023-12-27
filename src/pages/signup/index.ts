@@ -14,16 +14,21 @@ const passwordValidator = new PasswordValidatorStratgy();
 const phoneValidator = new PhoneNumberValidatorStratgy();
 
 const LoginInputs: FormInput[] = [
-  new FormInput("first_name", textValidator, [
-    {
-      condition: (value: string) => Regex.notEmpty.test(value.trim()),
-      msg: "Please enter your first name.",
-    },
-    {
-      condition: (value: string) => value.trim().length <= 25,
-      msg: "First name must be at least 25 characters long.",
-    },
-  ]),
+  new FormInput(
+    "first_name",
+    textValidator,
+    [
+      {
+        condition: (value: string) => Regex.notEmpty.test(value.trim()),
+        msg: "Please enter your first name.",
+      },
+      {
+        condition: (value: string) => value.trim().length <= 25,
+        msg: "First name must be at least 25 characters long.",
+      },
+    ],
+    false
+  ),
   new FormInput("last_name", textValidator, [
     {
       condition: (value: string) => value.trim().length <= 25,
@@ -33,7 +38,9 @@ const LoginInputs: FormInput[] = [
   new FormInput("phone_number", phoneValidator, [
     {
       condition: (value: string) =>
-        Regex.phoneNumbers.test(value.trim()) && value.trim()?.length >= 10,
+        Regex.phoneNumbers.test(value.trim()) &&
+        value.trim()?.length >= 8 &&
+        value.trim()?.length <= 16,
       msg: "Phone numbers must be at least 10 digits long.",
     },
   ]),
