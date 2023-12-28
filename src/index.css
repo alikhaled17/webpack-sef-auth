@@ -54,6 +54,19 @@ body {
     background-blend-mode: hue;
 }
 
+@media screen and (min-width: 768px) and (max-width: 1024px) and (max-height: 900px) {
+    .main_container {
+        background-size: 200%;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) and (min-height: 900px) {
+    .main_container {
+        background-size: 320%;
+    }
+}
+
+
 .main_container.ltr {
     direction: ltr;
 }

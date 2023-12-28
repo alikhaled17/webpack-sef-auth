@@ -584,14 +584,14 @@ video {
 .h-screen {
   height: 100vh;
 }
-.max-h-\[90vh\] {
-  max-height: 90vh;
+.max-h-\[92vh\] {
+  max-height: 92vh;
 }
 .max-h-screen {
   max-height: 100vh;
 }
-.max-h-\[92vh\] {
-  max-height: 92vh;
+.w-\[118px\] {
+  width: 118px;
 }
 .w-\[48px\] {
   width: 48px;
@@ -599,17 +599,8 @@ video {
 .w-\[95vw\] {
   width: 95vw;
 }
-.w-\[98vw\] {
-  width: 98vw;
-}
-.w-\[clamp\(118px\2c _9\.25rem\2c _178px\)\] {
-  width: max(118px, min(9.25rem, 178px));
-}
 .w-full {
   width: 100%;
-}
-.w-\[118px\] {
-  width: 118px;
 }
 .flex-grow {
   flex-grow: 1;
@@ -819,6 +810,19 @@ body {
     background-position: center;
     background-blend-mode: hue;
 }
+
+@media screen and (min-width: 768px) and (max-width: 1024px) and (max-height: 900px) {
+    .main_container {
+        background-size: 200%;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) and (min-height: 900px) {
+    .main_container {
+        background-size: 320%;
+    }
+}
+
 
 .main_container.ltr {
     direction: ltr;
@@ -1185,16 +1189,12 @@ select:-webkit-autofill:focus {
     display: grid;
   }
 
-  .sm\:w-\[80vw\] {
-    width: 80vw;
-  }
-
-  .sm\:w-\[90vw\] {
-    width: 90vw;
-  }
-
   .sm\:w-\[178px\] {
     width: 178px;
+  }
+
+  .sm\:w-\[80vw\] {
+    width: 80vw;
   }
 
   .sm\:flex-row {
@@ -1229,20 +1229,8 @@ select:-webkit-autofill:focus {
 
 @media (min-width: 768px) {
 
-  .md\:w-\[32rem\] {
-    width: 32rem;
-  }
-
-  .md\:w-\[60vw\] {
-    width: 60vw;
-  }
-
-  .md\:w-\[178px\] {
-    width: 178px;
-  }
-
-  .md\:flex-row {
-    flex-direction: row;
+  .md\:w-\[700px\] {
+    width: 700px;
   }
 }
 
