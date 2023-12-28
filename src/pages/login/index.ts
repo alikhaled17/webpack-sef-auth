@@ -36,8 +36,11 @@ const LoginInputs: FormInput[] = [
 const main = () => {
   // form validation checker
   for (const input of LoginInputs) {
-    input.ActivateEvent("focus");
-    input.ActivateEvent("blur");
+    input.ActivateEvent("focus", () => input.focusInput());
+    input.ActivateEvent("blur", () => {
+      input.checkInputChange();
+      input.blurInput();
+    });
   }
   const SignInForm = new FormValidator("signin");
   SignInForm.ActivateEvent("change");

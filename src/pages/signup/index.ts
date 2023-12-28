@@ -97,9 +97,16 @@ const addingDialCode = (code: string): void => {
 const main = () => {
   // form validation checker
   for (const input of LoginInputs) {
-    // input.ActivateEvent("keyup");
-    input.ActivateEvent("focus");
-    input.ActivateEvent("blur");
+    input.ActivateEvent("focus", () => input.focusInput());
+    if (input.tId === "password") {
+      input.ActivateEvent("blur", () => input.blurInput());
+      input.ActivateEvent("keyup", () => input.checkInputChange());
+    } else {
+      input.ActivateEvent("blur", () => {
+        input.focusInput();
+        input.checkInputChange();
+      });
+    }
   }
   const SignUpForm = new FormValidator("signup");
   SignUpForm.ActivateEvent("change");

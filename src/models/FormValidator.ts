@@ -143,7 +143,7 @@ export class FormInput {
   private placeHolderValue: string;
 
   constructor(
-    tId: string,
+    public tId: string,
     private validatorType: IValidatorStratgy,
     private validators: Validator[],
     private isRequired: boolean = true
@@ -172,7 +172,7 @@ export class FormInput {
     this.validators.push(validator);
   }
 
-  private checkInputChange(): void {
+  public checkInputChange(): void {
     let InfoElements: HTMLElement[] = [];
     InfoElements = this.validatorType.getErrorElements(
       this.validators,
@@ -183,7 +183,7 @@ export class FormInput {
     Helpers.ShowErrorMessage(InfoElements, this.inputInfoElement);
   }
 
-  private focusInput(): void {
+  public focusInput(): void {
     if (this.elementContainer.classList.contains("active")) {
       return;
     }
@@ -191,7 +191,7 @@ export class FormInput {
     this.element.placeholder = "";
   }
 
-  private blurInput(): void {
+  public blurInput(): void {
     if (this.element.value.trim()) {
       return;
     }
@@ -200,14 +200,18 @@ export class FormInput {
     this.element.placeholder = this.placeHolderValue;
   }
 
-  public ActivateEvent(event: keyof HTMLElementEventMap): void {
+  public ActivateEvent(
+    event: keyof HTMLElementEventMap,
+    metohde: Function
+  ): void {
     this.element.addEventListener(event, () => {
-      // if (event === "keyup");
-      if (event === "focus") this.focusInput();
-      if (event === "blur") {
-        this.blurInput();
-        this.checkInputChange();
-      }
+      metohde();
+      // // if (event === "keyup");
+      // if (event === "focus") this.focusInput();
+      // if (event === "blur") {
+      //   this.blurInput();
+      //   this.checkInputChange();
+      // }
     });
   }
 }
