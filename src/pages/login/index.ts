@@ -13,12 +13,12 @@ const LoginInputs: FormInput[] = [
   new FormInput("email", textValidator, [
     {
       condition: (value: string) => Regex.notEmpty.test(value.trim()),
-      msg: "Please enter your email or phone number.",
+      msg: "Please enter your email.",
     },
     {
       condition: (value: string) =>
         Regex.email.test(value.trim()) || Regex.phoneNumbers.test(value.trim()),
-      msg: "Invalid email or phone number format. Please check and try again.",
+      msg: "Invalid email format. Please check and try again.",
     },
   ]),
   new FormInput("password", textValidator, [
