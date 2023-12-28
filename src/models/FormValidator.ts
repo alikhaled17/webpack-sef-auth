@@ -80,6 +80,8 @@ export class PasswordValidatorStratgy implements IValidatorStratgy {
       arr.push(
         new HtmlEl("small", validator.msg, [
           "col-span-1",
+          "text-[14px]",
+          "sm:text-[12px]",
           "last-of-type:col-span-2",
           `${condition ? "succes_check" : "fail_check"}`,
         ]).Element

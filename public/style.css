@@ -507,10 +507,10 @@ video {
     max-width: 768px;
   }
 }
-@media (min-width: 992px) {
+@media (min-width: 1024px) {
 
   .container {
-    max-width: 992px;
+    max-width: 1024px;
   }
 }
 @media (min-width: 1200px) {
@@ -572,9 +572,6 @@ video {
 .flex {
   display: flex;
 }
-.grid {
-  display: grid;
-}
 .hidden {
   display: none;
 }
@@ -593,8 +590,14 @@ video {
 .max-h-screen {
   max-height: 100vh;
 }
+.max-h-\[92vh\] {
+  max-height: 92vh;
+}
 .w-\[48px\] {
   width: 48px;
+}
+.w-\[95vw\] {
+  width: 95vw;
 }
 .w-\[98vw\] {
   width: 98vw;
@@ -604,6 +607,9 @@ video {
 }
 .w-full {
   width: 100%;
+}
+.w-\[118px\] {
+  width: 118px;
 }
 .flex-grow {
   flex-grow: 1;
@@ -958,7 +964,7 @@ select:-webkit-autofill:focus {
     text-align: center;
     line-height: 20px;
     font-weight: bold;
-    margin: 0 4px;
+    margin: 0 6px;
 }
 
 .fail_check {
@@ -980,7 +986,7 @@ select:-webkit-autofill:focus {
     text-align: center;
     line-height: 20px;
     font-weight: bold;
-    margin: 0 4px;
+    margin: 0 6px;
 }
 
 .form_btn {
@@ -1175,8 +1181,20 @@ select:-webkit-autofill:focus {
     display: block;
   }
 
+  .sm\:grid {
+    display: grid;
+  }
+
+  .sm\:w-\[80vw\] {
+    width: 80vw;
+  }
+
   .sm\:w-\[90vw\] {
     width: 90vw;
+  }
+
+  .sm\:w-\[178px\] {
+    width: 178px;
   }
 
   .sm\:flex-row {
@@ -1198,6 +1216,15 @@ select:-webkit-autofill:focus {
   .sm\:p-1 {
     padding: 0.25rem;
   }
+
+  .sm\:py-10 {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .sm\:text-\[12px\] {
+    font-size: 12px;
+  }
 }
 
 @media (min-width: 768px) {
@@ -1206,7 +1233,31 @@ select:-webkit-autofill:focus {
     width: 32rem;
   }
 
+  .md\:w-\[60vw\] {
+    width: 60vw;
+  }
+
+  .md\:w-\[178px\] {
+    width: 178px;
+  }
+
   .md\:flex-row {
     flex-direction: row;
+  }
+}
+
+@media (min-width: 1024px) {
+
+  .lg\:w-\[32rem\] {
+    width: 32rem;
+  }
+
+  .lg\:flex-row {
+    flex-direction: row;
+  }
+
+  .lg\:py-0 {
+    padding-top: 0px;
+    padding-bottom: 0px;
   }
 }

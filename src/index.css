@@ -190,7 +190,7 @@ select:-webkit-autofill:focus {
     text-align: center;
     line-height: 20px;
     font-weight: bold;
-    margin: 0 4px;
+    margin: 0 6px;
 }
 
 .fail_check {
@@ -212,7 +212,7 @@ select:-webkit-autofill:focus {
     text-align: center;
     line-height: 20px;
     font-weight: bold;
-    margin: 0 4px;
+    margin: 0 6px;
 }
 
 .form_btn {
