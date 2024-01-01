@@ -134,7 +134,7 @@ const main = () => {
   // back button handler
   const backPopUp = new Modal("back_modal");
   document.querySelector("#back_btn").addEventListener("click", () => {
-    backPopUp.show();
+    SignUpForm.form.isChanged ? backPopUp.show() : window.history.back();
   });
   backPopUp.Popup.querySelector("#cancel").addEventListener("click", () => {
     backPopUp.hide();

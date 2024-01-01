@@ -237,7 +237,7 @@ export const EyeHandler = () => {
 };
 
 export class FormValidator {
-  private form: HTMLFormElement;
+  public form: HTMLFormElement;
   private inputs: TIdInput[] = [];
   private submitBtn: HTMLInputElement;
 
@@ -249,6 +249,7 @@ export class FormValidator {
         this.inputs.push(input as TIdInput);
       });
     this.submitBtn = this.form.querySelector(`input[type="submit"]`)!;
+    this.form.isChanged = false;
   }
 
   private CheckFormValidation = (): void => {
@@ -266,6 +267,7 @@ export class FormValidator {
 
   public ActivateEvent(event: keyof HTMLElementEventMap): void {
     this.form.addEventListener(event, () => {
+      this.form.isChanged = true;
       this.CheckFormValidation();
     });
   }
