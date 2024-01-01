@@ -194,6 +194,8 @@ export class FormInput {
   }
 
   public blurInput(): void {
+    console.log("hi");
+
     if (this.element.value.trim()) {
       return;
     }
@@ -208,12 +210,6 @@ export class FormInput {
   ): void {
     this.element.addEventListener(event, () => {
       metohde();
-      // // if (event === "keyup");
-      // if (event === "focus") this.focusInput();
-      // if (event === "blur") {
-      //   this.blurInput();
-      //   this.checkInputChange();
-      // }
     });
   }
 }

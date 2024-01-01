@@ -20,12 +20,39 @@
 </head>
 
 <body>
+    <div id="back_modal" class="modal absolute hidden top-0 left-0 z-10 h-screen w-full text-white">
+        <div class="modal_container bg-[#11121760] flex justify-center items-center h-screen">
+            <div
+                class="sm:grid grid-cols-3 w-[95vw] md:w-[806px] bg-[#1E1E1F] sm:h-[348px] overflow-hidden rounded-[16px]">
+                <div class="col-span-1 bg-primary flex flex-col gap-[24px] justify-center items-center">
+                    <img src="../assets/SEFLogo_white.svg" class="w-[150px] mt-[32px] sm:mt-[70px] mb-auto"
+                        alt="pattern">
+                    <div class="justify-self-end w-full">
+                        <img src="../assets/Isolation_Mode.svg" class="w-[215px] sm:w-260px" alt="pattern">
+                    </div>
+                </div>
+                <div
+                    class="col-span-2 flex flex-col justify-center gap-[16px] p-[24px] items-center sm:items-start text-center sm:text-start">
+                    <h3 class="text-[24px] w-[400]">Data will be lost.</h3>
+                    <p class="text-[18px]">
+                        The data you filled will be lost if you go back now,
+                        Are you sure you want to go back ?
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-[16px] w-full mt-[16px] justify-end">
+                        <button id="cancel" class="btn border-white ">Cancel</button>
+                        <button id="confirm" class="btn bg-primary border-primary">Back</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
     <main class="main_container smoothy flex items-center h-screen text-white max-h-screen ltr">
         <section
             class="container mx-auto flex justify-between flex-col items-center lg:flex-row transition-all sm:py-10 lg:py-0 ">
             <div class="self-start hidden sm:block">
-                <div class="back-btn flex items-center gap-2 py-[2rem] cursor-pointer hover:opacity-[0.8] transition-all duration-[0.3s]"
-                    onclick="history.back()">
+                <div id="back_btn"
+                    class="back-btn flex items-center gap-2 py-[2rem] cursor-pointer hover:opacity-[0.8] transition-all duration-[0.3s] text-[#F4F3F6]">
                     <img src="../assets/angle-left-circle.svg" alt="back arrow">
                     <span>Back</span>
                 </div>
@@ -39,7 +66,7 @@
 
                         <form action="" autocomplete="off" formId="signin">
                             <!-- TITLE -->
-                            <span class="text-[clamp(14px,_1.125rem,_18px)] font-[400] text-gray mb-[0.5rem]">Welcome to
+                            <span class="[clamp(14px,_1.125rem,_18px)] font-[400] text-gray mb-[0.5rem]">Welcome to
                                 the
                                 Academy</span>
                             <h3
@@ -81,7 +108,7 @@
                                     <label for="password" class="absolute top-4 opacity-0 label">Password *
                                     </label>
                                     <img src="../assets/openEye.svg" alt="password eye"
-                                        class="absolute h-[20px] top-[23px] cursor-pointer eye_icon" id="password_eye">
+                                        class="absolute h-[20px] top-[28px] cursor-pointer eye_icon" id="password_eye">
 
                                 </div>
 

@@ -7,6 +7,10 @@
     .smoothy {
         @apply transition-all duration-[.1s];
     }
+
+    .btn {
+        @apply p-[12px] border-solid border-[1px] rounded-[8px] min-w-[130px] opacity-[0.6] hover:opacity-[1] transition-all duration-[0.4s];
+    }
 }
 
 :root {
@@ -47,7 +51,7 @@ body {
 }
 
 .main_container {
-    background: url("./assets/auth-bg.png") rgba(0, 0, 0, 0.5);
+    background: url("./assets/auth-bg.jpg") rgba(0, 0, 0, 0.5);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -117,6 +121,11 @@ body {
     margin-top: 0.6rem;
     padding: 0.5rem 0.9rem 0.8rem;
     font-size: 16px;
+    height: 56px;
+}
+
+.form_input::placeholder {
+    color: #C7C6C8;
 }
 
 #phone_number {
@@ -160,6 +169,7 @@ select:-webkit-autofill:focus {
     font-size: 10px;
     opacity: 1;
     transition: all ease-in-out .2s;
+    color: #C7C6C8;
 }
 
 .main_container.ltr .iti~.label,

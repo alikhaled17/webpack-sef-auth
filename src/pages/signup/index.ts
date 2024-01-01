@@ -8,6 +8,7 @@ import {
   TextValidatorStratgy,
 } from "../../models/FormValidator";
 import intlTelInput from "intl-tel-input";
+import { Modal } from "../../models/Services";
 
 const textValidator = new TextValidatorStratgy();
 const passwordValidator = new PasswordValidatorStratgy();
@@ -31,7 +32,7 @@ const LoginInputs: FormInput[] = [
   ),
   new FormInput("last_name", textValidator, [
     {
-      condition: (value: string) => value.trim().length <= 25,
+      condition: (value: string) => value.length <= 25,
       msg: "Last name must be at least 25 characters long.",
     },
   ]),
@@ -97,16 +98,16 @@ const addingDialCode = (code: string): void => {
 const main = () => {
   // form validation checker
   for (const input of LoginInputs) {
-    input.ActivateEvent("focus", () => input.focusInput());
     if (input.tId === "password") {
-      input.ActivateEvent("blur", () => input.blurInput());
       input.ActivateEvent("keyup", () => input.checkInputChange());
-    } else {
-      input.ActivateEvent("blur", () => {
-        input.focusInput();
-        input.checkInputChange();
-      });
     }
+    input.ActivateEvent("focus", () => input.focusInput());
+    input.ActivateEvent("blur", () => {
+      if (input.tId !== "password") {
+        input.checkInputChange();
+      }
+      input.blurInput();
+    });
   }
   const SignUpForm = new FormValidator("signup");
   SignUpForm.ActivateEvent("change");
@@ -131,6 +132,18 @@ const main = () => {
 
   // password eye handler
   document.querySelector("#password_eye").addEventListener("click", EyeHandler);
+
+  // back button handler
+  const backPopUp = new Modal("back_modal");
+  document.querySelector("#back_btn").addEventListener("click", () => {
+    backPopUp.show();
+  });
+  backPopUp.Popup.querySelector("#cancel").addEventListener("click", () => {
+    backPopUp.hide();
+  });
+  backPopUp.Popup.querySelector("#confirm").addEventListener("click", () => {
+    window.history.back();
+  });
 };
 
 main();

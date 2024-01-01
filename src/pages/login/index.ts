@@ -6,6 +6,7 @@ import {
 } from "../../models/FormValidator";
 
 import { FormValidator } from "../../models/FormValidator";
+import { Modal } from "../../models/Services";
 
 const textValidator = new TextValidatorStratgy();
 
@@ -33,6 +34,11 @@ const LoginInputs: FormInput[] = [
   ]),
 ];
 
+// window.addEventListener("beforeunload", (e) => {
+//   console.log("asas");
+//   alert("asas");
+// });
+
 const main = () => {
   // form validation checker
   for (const input of LoginInputs) {
@@ -47,6 +53,18 @@ const main = () => {
 
   // password eye handler
   document.querySelector("#password_eye").addEventListener("click", EyeHandler);
+
+  // back button handler
+  const backPopUp = new Modal("back_modal");
+  document.querySelector("#back_btn").addEventListener("click", () => {
+    backPopUp.show();
+  });
+  backPopUp.Popup.querySelector("#cancel").addEventListener("click", () => {
+    backPopUp.hide();
+  });
+  backPopUp.Popup.querySelector("#confirm").addEventListener("click", () => {
+    window.history.back();
+  });
 };
 
 main();
