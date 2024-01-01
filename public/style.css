@@ -580,15 +580,14 @@ video {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
-.my-\[2rem\] {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}
 .mb-4 {
   margin-bottom: 1rem;
 }
 .mb-\[0\.5rem\] {
   margin-bottom: 0.5rem;
+}
+.mb-\[1rem\] {
+  margin-bottom: 1rem;
 }
 .mb-auto {
   margin-bottom: auto;
@@ -610,12 +609,6 @@ video {
 }
 .mt-\[32px\] {
   margin-top: 32px;
-}
-.mt-\[3rem\] {
-  margin-top: 3rem;
-}
-.mb-\[1rem\] {
-  margin-bottom: 1rem;
 }
 .block {
   display: block;
@@ -1043,7 +1036,7 @@ select:-webkit-autofill:focus {
 
 .active .label {
     top: .8rem;
-    font-size: 10px;
+    font-size: 14px;
     opacity: 1;
     transition: all ease-in-out .2s;
     color: #C7C6C8;
@@ -1307,18 +1300,6 @@ select:-webkit-autofill:focus {
     margin-top: 70px;
   }
 
-  .sm\:me-\[90px\] {
-    margin-right: 90px;
-  }
-
-  .sm\:me-\[76px\] {
-    margin-right: 76px;
-  }
-
-  .sm\:me-\[86px\] {
-    margin-right: 86px;
-  }
-
   .sm\:block {
     display: block;
   }
@@ -1382,14 +1363,6 @@ select:-webkit-autofill:focus {
 }
 
 @media (min-width: 768px) {
-
-  .md\:me-\[90px\] {
-    margin-right: 90px;
-  }
-
-  .md\:me-\[76px\] {
-    margin-right: 76px;
-  }
 
   .md\:me-\[70px\] {
     margin-right: 70px;
