@@ -194,8 +194,6 @@ export class FormInput {
   }
 
   public blurInput(): void {
-    console.log("hi");
-
     if (this.element.value.trim()) {
       return;
     }

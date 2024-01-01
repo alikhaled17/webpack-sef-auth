@@ -56,6 +56,7 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-blend-mode: hue;
+    padding: 32px;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) and (max-height: 900px) {
@@ -81,6 +82,18 @@ body {
 
 .main_container.rtl .back-btn img {
     transform: rotate(180deg);
+}
+
+@media screen and (min-width: 768px) {
+    .nafaz_btn {
+        margin-left: unset;
+        margin-right: 70px;
+    }
+
+    .main_container.rtl .nafaz_btn {
+        margin-right: unset;
+        margin-left: 70px;
+    }
 }
 
 .form_container {
@@ -130,6 +143,11 @@ body {
 
 #phone_number {
     padding-left: 90px;
+}
+
+.main_container.rtl #phone_number {
+    direction: rtl;
+    padding-right: 90px;
 }
 
 

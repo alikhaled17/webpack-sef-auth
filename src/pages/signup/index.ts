@@ -15,27 +15,27 @@ const passwordValidator = new PasswordValidatorStratgy();
 const phoneValidator = new PhoneNumberValidatorStratgy();
 
 const LoginInputs: FormInput[] = [
+  new FormInput("first_name", textValidator, [
+    {
+      condition: (value: string) => Regex.notEmpty.test(value.trim()),
+      msg: "Please enter your first name.",
+    },
+    {
+      condition: (value: string) => value.trim().length <= 25,
+      msg: "First name must be at least 25 characters long.",
+    },
+  ]),
   new FormInput(
-    "first_name",
+    "last_name",
     textValidator,
     [
       {
-        condition: (value: string) => Regex.notEmpty.test(value.trim()),
-        msg: "Please enter your first name.",
-      },
-      {
-        condition: (value: string) => value.trim().length <= 25,
-        msg: "First name must be at least 25 characters long.",
+        condition: (value: string) => value.length <= 25,
+        msg: "Last name must be at least 25 characters long.",
       },
     ],
     false
   ),
-  new FormInput("last_name", textValidator, [
-    {
-      condition: (value: string) => value.length <= 25,
-      msg: "Last name must be at least 25 characters long.",
-    },
-  ]),
   new FormInput("phone_number", phoneValidator, [
     {
       condition: (value: string) =>
@@ -98,16 +98,14 @@ const addingDialCode = (code: string): void => {
 const main = () => {
   // form validation checker
   for (const input of LoginInputs) {
+    input.ActivateEvent("focus", () => input.focusInput());
+    input.ActivateEvent("blur", () => input.blurInput());
     if (input.tId === "password") {
       input.ActivateEvent("keyup", () => input.checkInputChange());
+      input.ActivateEvent("blur", () => input.blurInput());
+    } else {
+      input.ActivateEvent("blur", () => input.checkInputChange());
     }
-    input.ActivateEvent("focus", () => input.focusInput());
-    input.ActivateEvent("blur", () => {
-      if (input.tId !== "password") {
-        input.checkInputChange();
-      }
-      input.blurInput();
-    });
   }
   const SignUpForm = new FormValidator("signup");
   SignUpForm.ActivateEvent("change");

@@ -914,6 +914,7 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-blend-mode: hue;
+    padding: 32px;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) and (max-height: 900px) {
@@ -939,6 +940,20 @@ body {
 
 .main_container.rtl .back-btn img {
     transform: rotate(180deg);
+}
+
+@media screen and (min-width: 768px) {
+    .nafaz_btn {
+        margin-left: 0;
+        margin-left: initial;
+        margin-right: 70px;
+    }
+
+    .main_container.rtl .nafaz_btn {
+        margin-right: 0;
+        margin-right: initial;
+        margin-left: 70px;
+    }
 }
 
 .form_container {
@@ -997,6 +1012,11 @@ body {
 
 #phone_number {
     padding-left: 90px;
+}
+
+.main_container.rtl #phone_number {
+    direction: rtl;
+    padding-right: 90px;
 }
 
 
@@ -1292,10 +1312,6 @@ select:-webkit-autofill:focus {
 
 @media (min-width: 576px) {
 
-  .sm\:me-2 {
-    margin-right: 0.5rem;
-  }
-
   .sm\:mt-\[70px\] {
     margin-top: 70px;
   }
@@ -1363,10 +1379,6 @@ select:-webkit-autofill:focus {
 }
 
 @media (min-width: 768px) {
-
-  .md\:me-\[70px\] {
-    margin-right: 70px;
-  }
 
   .md\:w-\[700px\] {
     width: 700px;

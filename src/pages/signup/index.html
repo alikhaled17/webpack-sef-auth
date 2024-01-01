@@ -19,35 +19,37 @@
 </head>
 
 <body>
-    <div id="back_modal" class="modal absolute hidden top-0 left-0 z-10 h-screen w-full text-white">
-        <div class="modal_container bg-[#11121760] flex justify-center items-center h-screen">
-            <div
-                class="sm:grid grid-cols-3 w-[95vw] md:w-[806px] bg-[#1E1E1F] sm:h-[348px] overflow-hidden rounded-[16px]">
-                <div class="col-span-1 bg-primary flex flex-col gap-[24px] justify-center items-center">
-                    <img src="../assets/SEFLogo_white.svg" class="w-[150px] mt-[32px] sm:mt-[70px] mb-auto"
-                        alt="pattern">
-                    <div class="justify-self-end w-full">
-                        <img src="../assets/Isolation_Mode.svg" class="w-[215px] sm:w-260px" alt="pattern">
-                    </div>
-                </div>
+    <main
+        class="main_container smoothy flex items-center h-screen text-white max-h-screen overflow-hidden overflow-y-auto ltr">
+        <!-- Start Popup modal -->
+        <div id="back_modal" class="modal absolute hidden top-0 left-0 z-10 h-screen w-full text-white">
+            <div class="modal_container bg-[#11121760] flex justify-center items-center h-screen ">
                 <div
-                    class="col-span-2 flex flex-col justify-center gap-[16px] p-[24px] items-center sm:items-start text-center sm:text-start">
-                    <h3 class="text-[24px] w-[400]">Data will be lost.</h3>
-                    <p class="text-[18px]">
-                        The data you filled will be lost if you go back now,
-                        Are you sure you want to go back ?
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-[16px] w-full mt-[16px] justify-end">
-                        <button id="cancel" class="btn border-white ">Cancel</button>
-                        <button id="confirm" class="btn bg-primary border-primary">Back</button>
+                    class="sm:grid grid-cols-3 w-[95vw] md:w-[806px] bg-[#1E1E1F] sm:h-[348px] overflow-hidden rounded-[16px]">
+                    <div class="col-span-1 bg-primary flex flex-col gap-[24px] justify-center items-center">
+                        <img src="../assets/SEFLogo_white.svg" class="w-[150px] mt-[32px] sm:mt-[70px] mb-auto"
+                            alt="pattern">
+                        <div class="justify-self-end w-full">
+                            <img src="../assets/Isolation_Mode.svg" class="w-[215px] sm:w-260px" alt="pattern">
+                        </div>
                     </div>
+                    <div
+                        class="col-span-2 flex flex-col justify-center gap-[16px] p-[24px] items-center sm:items-start text-center sm:text-start">
+                        <h3 class="text-[24px] w-[400]">Data will be lost.</h3>
+                        <p class="text-[18px]">
+                            The data you filled will be lost if you go back now,
+                            Are you sure you want to go back ?
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-[16px] w-full mt-[16px] justify-end">
+                            <button id="cancel" class="btn border-white ">Cancel</button>
+                            <button id="confirm" class="btn bg-primary border-primary">Back</button>
+                        </div>
 
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <main
-        class="main_container smoothy flex items-center h-screen text-white max-h-screen overflow-hidden overflow-y-auto ltr">
+        <!-- End Popup modal -->
         <section
             class="container mx-auto flex justify-between flex-col items-center lg:flex-row transition-all sm:py-10 lg:py-0 ">
             <div class="self-start hidden sm:block">
@@ -73,7 +75,7 @@
                                 class="form_title text-[clamp(18px,_2rem,_32px)]  font-[400] text-white mt-[0.5rem] px-2">
                                 SIGN UP</h3> <!-- CHANNELS -->
                             <div class="flex justify-between items-center gap-[0.5rem] sm:gap-[1rem] mt-[2rem]">
-                                <a class="h-[3rem] p-[0.7] sm:p-1 flex-grow  flex justify-center items-center gap-0 sm:gap-[1px] rounded-[0.5rem] bg-white md:me-[70px]"
+                                <a class="h-[3rem] p-[0.7] sm:p-1 flex-grow flex justify-center items-center gap-0 sm:gap-[1px] rounded-[0.5rem] bg-white nafaz_btn"
                                     href="#">
                                     <img class="w-[48px]" src="../assets/Nafaz.svg" alt="Nafaz-logo">
                                     <span class="text-[clamp(14px,_1rem,_16px)] font-[600] text-black">Continue
