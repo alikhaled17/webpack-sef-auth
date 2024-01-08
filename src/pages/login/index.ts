@@ -30,11 +30,6 @@ const LoginInputs: FormInput[] = [
   ]),
 ];
 
-// window.addEventListener("beforeunload", (e) => {
-//   console.log("asas");
-//   alert("asas");
-// });
-
 const main = () => {
   // form validation checker
   for (const input of LoginInputs) {
