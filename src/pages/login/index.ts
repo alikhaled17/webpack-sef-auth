@@ -40,7 +40,7 @@ const main = () => {
     });
   }
   const SignInForm = new FormValidator("signin");
-  SignInForm.ActivateEvent("keyup");
+  SignInForm.ActivateEvent("change");
 
   // password eye handler
   document.querySelector("#password_eye").addEventListener("click", EyeHandler);
