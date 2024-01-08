@@ -45,7 +45,7 @@ const LoginInputs: FormInput[] = [
           Regex.phoneNumbers.test(value.trim()) &&
           value.trim()?.length >= 8 &&
           value.trim()?.length <= 16,
-        msg: "The mobile number shall be between (7) and (15).",
+        msg: "The mobile number shall be between (7) and (15) digits.",
       },
     ],
     false
@@ -62,7 +62,7 @@ const LoginInputs: FormInput[] = [
   ]),
   new FormInput("password", passwordValidator, [
     {
-      condition: (value: string) => value.trim().length >= 8,
+      condition: (value: string) => value.length >= 8,
       msg: "Minimum Length : 8 characters",
     },
     {
