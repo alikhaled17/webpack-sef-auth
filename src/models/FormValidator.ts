@@ -115,6 +115,8 @@ export class PhoneNumberValidatorStratgy implements IValidatorStratgy {
     value: string,
     inputElement: TIdInput
   ): HTMLElement[] {
+    if (!inputElement.value) return;
+
     const dialCodeBoxValue: string = document
       .querySelector(".dial-code-box")
       .innerHTML.trim();

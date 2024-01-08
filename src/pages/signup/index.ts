@@ -36,15 +36,20 @@ const LoginInputs: FormInput[] = [
     ],
     false
   ),
-  new FormInput("phone_number", phoneValidator, [
-    {
-      condition: (value: string) =>
-        Regex.phoneNumbers.test(value.trim()) &&
-        value.trim()?.length >= 8 &&
-        value.trim()?.length <= 16,
-      msg: "Phone numbers must be at least 10 digits long.",
-    },
-  ]),
+  new FormInput(
+    "phone_number",
+    phoneValidator,
+    [
+      {
+        condition: (value: string) =>
+          Regex.phoneNumbers.test(value.trim()) &&
+          value.trim()?.length >= 8 &&
+          value.trim()?.length <= 16,
+        msg: "The mobile number shall be between (7) and (15).",
+      },
+    ],
+    false
+  ),
   new FormInput("email", textValidator, [
     {
       condition: (value: string) => Regex.notEmpty.test(value.trim()),
@@ -108,7 +113,7 @@ const main = () => {
     }
   }
   const SignUpForm = new FormValidator("signup");
-  SignUpForm.ActivateEvent("change");
+  SignUpForm.ActivateEvent("keyup");
 
   // phone number input handler
   const phoneInput: HTMLInputElement = document.querySelector("#phone_number");

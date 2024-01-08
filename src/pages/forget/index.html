@@ -5,23 +5,22 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Signup</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/css/intlTelInput.css">
+    <title>FORGOT PASSWORD</title>
     <link rel="stylesheet" href="../assets/font/stylesheet.css">
     <style type="text/tailwindcss">
         @layer utilities {
-            .content-auto {
-                content-visibility: auto;
-            }
+          .content-auto {
+            content-visibility: auto;
+          }
         }
-    </style>
+      </style>
     <link rel="stylesheet" href="../style.css">
+
+
 </head>
 
 <body>
-    <main
-        class="main_container smoothy flex items-center h-screen text-white max-h-screen overflow-hidden overflow-y-auto ltr">
-        <!-- Start Popup modal -->
+    <main class="main_container smoothy flex items-center h-screen text-white max-h-screen ltr">
         <div id="back_modal" class="modal absolute hidden top-0 left-0 z-10 h-screen w-full text-white">
             <div class="modal_container bg-[#11121760] flex justify-center items-center h-screen ">
                 <div
@@ -49,7 +48,6 @@
                 </div>
             </div>
         </div>
-        <!-- End Popup modal -->
         <section
             class="container mx-auto flex justify-between flex-col items-center lg:flex-row transition-all sm:py-10 lg:py-0 ">
             <div class="self-start hidden sm:block">
@@ -62,17 +60,17 @@
             <div class="max-h-[92vh] rounded-[1rem] overflow-hidden ">
                 <div class=" max-h-[92vh] overflow-hidden overflow-y-auto">
                     <div
-                        class=" form_container bg-[#191919] w-[95vw] sm:w-[80vw] md:w-[700px] lg:w-[32rem] rounded-[1rem] py-[2rem] px-[1.2rem]">
+                        class=" form_container bg-[#191919] w-[95vw] sm:w-[80vw] md:w-[700px] lg:w-[32rem] rounded-[1rem] py-[2rem] px-[1.2rem] min-h-[70vh]">
                         <!-- FORM -->
                         <img class="w-[118px] sm:w-[178px] mx-auto mb-4" src="../assets/sa-logo.svg" alt="Google-logo">
 
-                        <form action="" autocomplete="off" formId="signup">
+                        <form action="" autocomplete="off" formId="forget">
                             <!-- TITLE -->
-                            <span class="text-[14px] sm:text-[18px] font-[400] text-gray mb-[0.5rem]">Welcome to
-                                the
-                                Academy</span>
-                            <h3 class="form_title text-[18px] sm:text-[32px]   font-[400]  mt-[0.5rem] px-2">
-                                SIGN UP</h3> <!-- CHANNELS -->
+                            <span class="text-[14px] sm:text-[18px] font-[400] text-gray mb-[0.5rem]">Recover your
+                                account</span>
+                            <h3 class="form_title text-[18px] sm:text-[32px] font-[400] mt-[0.5rem] px-2">
+                                FORGOT PASSWORD</h3>
+                            <!-- CHANNELS -->
                             <div class="flex justify-between items-center gap-[0.5rem] sm:gap-[1rem] mt-[2rem]">
                                 <a class="h-[3rem] p-[0.7] sm:p-1 flex-grow flex justify-center items-center gap-0 sm:gap-[1px] rounded-[0.5rem] bg-white nafaz_btn"
                                     href="#">
@@ -91,66 +89,18 @@
                             </div>
                             <!-- INPUTS -->
                             <div class="mt-[2rem] flex flex-col ">
-                                <div class="flex gap-0 sm:gap-[8px] flex-col sm:flex-row">
-                                    <div class="relative w-full">
-                                        <div class="flex flex-col w-full flex-grow">
-                                            <input class="form_input w-full" type="text" name="first_name"
-                                                tid="first_name" id="first_name" placeholder="First Name *"
-                                                maxlength="25">
-                                            <div class="input_info"></div>
-                                            <label for="first_name" class="absolute top-4 opacity-0 label">First Name *
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="relative w-full">
-                                        <div class="flex flex-col w-full flex-grow">
-                                            <input class="form_input w-full" type="text" name="last_name"
-                                                tid="last_name" id="last_name" placeholder="Last Name" maxlength="25">
-                                            <div class="input_info"></div>
-                                            <label for="last_name" class="absolute top-4 opacity-0 label">Last Name
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="relative w-full">
-                                    <!-- <input class="form_input w-full" type="text" name="phone_number" > -->
 
-                                    <input class="form_input w-full" type="tel" name="phone_number" tid="phone_number"
-                                        id="phone_number" placeholder="Phone Number">
-                                    <div class="input_info"></div>
-                                    <label for="phone_number" class="absolute top-4 opacity-0 label">Phone Number
-                                    </label>
-                                </div>
-                                <div class="relative w-full">
-                                    <input class="form_input w-full" type="email" name="email" tid="email" id="email"
+                                    <input tid="email" class="form_input w-full" type="email" name="email" id="email"
                                         placeholder="Email *" maxlength="50">
                                     <div class="input_info"></div>
                                     <label for="email" class="absolute top-4 opacity-0 label">Email *
                                     </label>
                                 </div>
 
-                                <div class="relative w-full">
-                                    <input class="form_input w-full" type="password" name="password" tid="password"
-                                        id="password" placeholder="Password" maxlength="128">
-                                    <div class="input_info flex flex-col sm:grid gap-2 grid-cols-2 mt-2 ">
-                                    </div>
-                                    <label for="password" class="absolute top-4 opacity-0 label">Password *
-                                    </label>
-                                    <img src="../assets/openEye.svg" alt="password eye"
-                                        class="absolute h-[20px] top-[28px] cursor-pointer eye_icon" id="password_eye">
-                                </div>
 
-                                <input type="submit" btnid="submit" type="submit" class="form_btn mt-[2rem] mb-[1rem]"
-                                    value="Sign Up" disabled />
 
-                                <p class="mx-auto text-[14px] my-[1rem] text-[#909092] text-center">By Signing up you
-                                    agree to the Academy
-                                    <a href="login" class="text-primary block sm:inline">privacy policy & Guidelines</a>
-                                </p>
-
-                                <p class="mx-auto text-[16px] my-[1rem] text-[#909092]">Have an account!
-                                    <a href="login" class="text-primary">Sign In</a>
-                                </p>
+                                <input type="submit" type="submit" class="form_btn mt-[1rem]" value="Submit" disabled />
 
                             </div>
 
@@ -160,7 +110,7 @@
             </div>
         </section>
     </main>
-    <script src="../signup.js"></script>
+    <script src="../forget.js"></script>
 </body>
 
 </html>
