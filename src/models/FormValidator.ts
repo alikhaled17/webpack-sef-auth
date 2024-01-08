@@ -239,7 +239,7 @@ export const EyeHandler = () => {
 export class FormValidator {
   public form: HTMLFormElement;
   private inputs: TIdInput[] = [];
-  private submitBtn: HTMLInputElement;
+  public submitBtn: HTMLInputElement;
 
   constructor(formId: string) {
     this.form = document.querySelector(`[formId="${formId}"]`)!;

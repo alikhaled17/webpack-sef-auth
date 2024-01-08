@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="../assets/font/stylesheet.css">
+    <style type="text/tailwindcss">
+        @layer utilities {
+          .content-auto {
+            content-visibility: auto;
+          }
+        }
+      </style>
+    <link rel="stylesheet" href="../style.css">
+
+
+</head>
+
+<body>
+    <main class="main_container smoothy flex items-center h-screen text-white max-h-screen ltr">
+        <div id="back_modal" class="modal absolute hidden top-0 left-0 z-10 h-screen w-full text-white">
+            <div class="modal_container bg-[#11121760] flex justify-center items-center h-screen">
+                <div
+                    class="sm:grid grid-cols-3 w-[95vw] md:w-[806px] bg-[#1E1E1F] sm:h-[348px] overflow-hidden rounded-[16px]">
+                    <div class="col-span-1 bg-primary flex flex-col gap-[24px] justify-center items-center">
+                        <img src="../assets/SEFLogo_white.svg" class="w-[150px] mt-[32px] sm:mt-[70px] mb-auto"
+                            alt="pattern">
+                        <div class="justify-self-end w-full">
+                            <img src="../assets/Isolation_Mode.svg" class="w-[215px] sm:w-260px" alt="pattern">
+                        </div>
+                    </div>
+                    <div
+                        class="col-span-2 flex flex-col justify-center gap-[16px] p-[24px] items-center sm:items-start text-center sm:text-start">
+                        <h3 class="text-[24px] w-[400]">Data will be lost.</h3>
+                        <p class="text-[18px]">
+                            The data you filled will be lost if you go back now,
+                            Are you sure you want to go back ?
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-[16px] w-full mt-[16px] justify-end">
+                            <button id="cancel" class="btn border-white ">Cancel</button>
+                            <button id="confirm" class="btn bg-primary border-primary">Back</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section
+            class="container mx-auto flex justify-between flex-col items-center lg:flex-row transition-all sm:py-10 lg:py-0 ">
+            <div class="self-start hidden sm:block">
+                <div id="back_btn"
+                    class="back-btn flex items-center gap-2 py-[2rem] cursor-pointer hover:opacity-[0.8] transition-all duration-[0.3s] text-[#F4F3F6]">
+                    <img src="../assets/angle-left-circle.svg" alt="back arrow">
+                    <span>Back</span>
+                </div>
+            </div>
+            <div class=" max-h-[92vh] rounded-[1rem] overflow-hidden ">
+                <div class=" max-h-[92vh] overflow-hidden overflow-y-auto">
+                    <div
+                        class="min-h-[80vh] form_container bg-[#191919] w-[95vw] sm:w-[80vw] md:w-[700px] lg:w-[32rem] rounded-[1rem] py-[2rem] px-[1.2rem]">
+                        <!-- FORM -->
+                        <img class="w-[118px] sm:w-[178px] mx-auto mb-4" src="../assets/sa-logo.svg" alt="Google-logo">
+
+                        <form action="" autocomplete="off" formId="forgot">
+                            <!-- TITLE -->
+                            <span class="[clamp(14px,_1.125rem,_18px)] font-[400] text-gray mb-[0.5rem]">Recover your
+                                account</span>
+                            <h3
+                                class="form_title text-[clamp(18px,_2rem,_32px)]  font-[400] text-white mt-[0.5rem] px-2">
+                                FORGOT PASSWORD</h3>
+
+                            <!-- INPUTS -->
+                            <div class="mt-[2rem] flex flex-col ">
+                                <div class="relative w-full">
+
+                                    <input tid="email" class="form_input w-full" type="email" name="email" id="email"
+                                        placeholder="Email *" maxlength="50">
+                                    <div class="input_info"></div>
+                                    <label for="email" class="absolute top-4 opacity-0 label">Email *
+                                    </label>
+                                </div>
+
+
+
+
+                                <div class="relative">
+                                    <input type="submit" type="submit" class="form_btn mt-[1rem] w-full" value="Submit"
+                                        disabled />
+                                    <img class="loader animate-spin w-[20px] mx-auto mb-4 absolute top-[46%] left-[48%]"
+                                        src="../assets/loading-circle-white.svg" alt="Google-logo">
+
+                                </div>
+
+
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="../forgot.js"></script>
+</body>
+
+</html>

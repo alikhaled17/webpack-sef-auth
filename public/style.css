@@ -554,6 +554,9 @@ video {
 .left-0 {
   left: 0px;
 }
+.left-\[50\%\] {
+  left: 50%;
+}
 .top-0 {
   top: 0px;
 }
@@ -562,6 +565,24 @@ video {
 }
 .top-\[28px\] {
   top: 28px;
+}
+.top-\[calc\(50\%-2px\)\] {
+  top: calc(50% - 2px);
+}
+.left-\[49\%\] {
+  left: 49%;
+}
+.left-\[48\%\] {
+  left: 48%;
+}
+.top-\[48\%\] {
+  top: 48%;
+}
+.top-\[47\%\] {
+  top: 47%;
+}
+.top-\[46\%\] {
+  top: 46%;
 }
 .z-10 {
   z-index: 10;
@@ -634,11 +655,17 @@ video {
 .max-h-screen {
   max-height: 100vh;
 }
+.min-h-\[80vh\] {
+  min-height: 80vh;
+}
 .w-\[118px\] {
   width: 118px;
 }
 .w-\[150px\] {
   width: 150px;
+}
+.w-\[20px\] {
+  width: 20px;
 }
 .w-\[215px\] {
   width: 215px;
@@ -657,6 +684,15 @@ video {
 }
 .flex-grow {
   flex-grow: 1;
+}
+@keyframes spin {
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-spin {
+  animation: spin 1s linear infinite;
 }
 .cursor-pointer {
   cursor: pointer;
@@ -1138,8 +1174,15 @@ select:-webkit-autofill:focus {
     flex-grow: 1;
     font-size: 16px;
     transition: all .2s ease-in-out;
-
     cursor: pointer;
+}
+
+.loader {
+    display: none;
+}
+
+.loader.isLoading {
+    display: block;
 }
 
 .form_btn:disabled {

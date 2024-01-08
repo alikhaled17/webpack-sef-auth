@@ -8,6 +8,7 @@ module.exports = {
     app: "./src/index.ts",
     login: "./src/pages/login/index.ts",
     signup: "./src/pages/signup/index.ts",
+    forgot: "./src/pages/forgot/index.ts",
   },
   module: {
     rules: [
@@ -46,6 +47,10 @@ module.exports = {
           from: `./src/pages/signup/index.html`,
           to: `signup/index.html`,
         },
+        {
+          from: `./src/pages/forgot/index.html`,
+          to: `forgot/index.html`,
+        },
         { from: `./src/index.html`, to: `index.html` },
         { from: "./src/assets", to: "assets" },
       ],
@@ -57,65 +62,10 @@ module.exports = {
   output: {
     publicPath: "public",
     path: path.resolve(__dirname, "public"),
-    // filename: ({ runtime }) => {
-    //   return runtime === "app" ? "index.js" : "[name]/index.js";
-    // },
+
     filename: ({ runtime }) => {
       return runtime === "app" ? "index.js" : "[name].js";
     },
     clean: true,
   },
 };
-
-// const pages = ["signup", "login"];
-
-// module.exports = {
-//   entry: {
-//     app: "./src/index.ts",
-//     login: "./src/pages/login/index.ts",
-//     signup: "./src/pages/signup/index.ts",
-//   },
-//   mode: "development",
-//   devServer: {
-//     watchFiles: ["src/**/*"],
-//   },
-//   module: {
-//     rules: [
-//       {
-//         test: /\.tsx?$/,
-//         use: "ts-loader",
-//         exclude: /node_modules/,
-//       },
-//       {
-//         test: /\.css$/i,
-//         include: path.resolve(__dirname, "src"),
-//         use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
-//       },
-//     ],
-//   },
-//   resolve: {
-//     extensions: [".tsx", ".ts", ".js"],
-//   },
-//   plugins: [
-//     new CopyPlugin({
-//       patterns: [
-//         ...pages.map((page) => {
-//           return {
-//             from: `./src/pages/${page}/index.html`,
-//             to: `./${page}/index.html`,
-//           };
-//         }),
-//         { from: `./src/index.html`, to: `./app/index.html` },
-//         { from: "./src/assets", to: "app/assets" },
-//       ],
-//     }),
-//     new MiniCssExtractPlugin({
-//       filename: "style.css",
-//     }),
-//   ],
-//   output: {
-//     path: path.resolve(__dirname, "dist"),
-//     filename: "[name]/index.js",
-//     clean: true,
-//   },
-// };
