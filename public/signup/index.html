@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/css/intlTelInput.css">
+    <link rel="stylesheet" href="../assets/font/stylesheet.css">
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <main
+        class="main_container smoothy flex items-center h-screen text-white max-h-screen overflow-hidden overflow-y-auto ltr">
+        <!-- Start Popup modal -->
+        <div id="back_modal" class="modal absolute hidden top-0 left-0 z-10 h-screen w-full text-white">
+            <div class="modal_container bg-[#11121760] flex justify-center items-center h-screen ">
+                <div
+                    class="sm:grid grid-cols-3 w-[95vw] md:w-[806px] bg-[#1E1E1F] sm:h-[348px] overflow-hidden rounded-[16px]">
+                    <div class="col-span-1 bg-primary flex flex-col gap-[24px] justify-center items-center">
+                        <img src="../assets/SEFLogo_white.svg" class="w-[150px] mt-[32px] sm:mt-[70px] mb-auto"
+                            alt="pattern">
+                        <div class="justify-self-end w-full">
+                            <img src="../assets/Isolation_Mode.svg" class="w-[215px] sm:w-260px" alt="pattern">
+                        </div>
+                    </div>
+                    <div
+                        class="col-span-2 flex flex-col justify-center gap-[16px] p-[24px] items-center sm:items-start text-center sm:text-start">
+                        <h3 class="text-[24px] w-[400]">Data will be lost.</h3>
+                        <p class="text-[18px]">
+                            The data you filled will be lost if you go back now,
+                            Are you sure you want to go back ?
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-[16px] w-full mt-[16px] justify-end">
+                            <button id="cancel" class="btn border-white ">Cancel</button>
+                            <button id="confirm" class="btn bg-primary border-primary">Back</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Popup modal -->
+        <section
+            class="container mx-auto flex justify-between flex-col items-center lg:flex-row transition-all sm:py-10 lg:py-0 ">
+            <div class="self-start hidden sm:block">
+                <div id="back_btn"
+                    class="back-btn flex items-center gap-2 py-[2rem] cursor-pointer hover:opacity-[0.8] transition-all duration-[0.3s] text-[#F4F3F6]">
+                    <img src="../assets/angle-left-circle.svg" alt="back arrow">
+                    <span>Back</span>
+                </div>
+            </div>
+            <div class="max-h-[92vh] rounded-[1rem] overflow-hidden ">
+                <div class=" max-h-[92vh] overflow-hidden overflow-y-auto">
+                    <div
+                        class=" form_container bg-[#191919] w-[95vw] sm:w-[80vw] md:w-[700px] lg:w-[32rem] rounded-[1rem] py-[2rem] px-[1.2rem]">
+                        <!-- FORM -->
+                        <img class="w-[118px] sm:w-[178px] mx-auto mb-4" src="../assets/sa-logo.svg" alt="Google-logo">
+
+                        <form action="" autocomplete="off" formId="signup">
+                            <!-- TITLE -->
+                            <span class="text-[14px] sm:text-[18px] font-[400] text-gray mb-[0.5rem]">Welcome to
+                                the
+                                Academy</span>
+                            <h3 class="form_title text-[18px] sm:text-[32px]   font-[400]  mt-[0.5rem] px-2">
+                                SIGN UP</h3> <!-- CHANNELS -->
+                            <div class="flex justify-between items-center gap-[0.5rem] sm:gap-[1rem] mt-[2rem]">
+                                <a class="h-[3rem] p-[0.7] sm:p-1 flex-grow flex justify-center items-center gap-0 sm:gap-[1px] rounded-[0.5rem] bg-white nafaz_btn"
+                                    href="#">
+                                    <img class="w-[48px]" src="../assets/Nafaz.svg" alt="Nafaz-logo">
+                                    <span class="text-[14px] sm:text-[16px] font-[600] text-black">Continue
+                                        with Nafaz</span>
+                                </a>
+                                <a class="h-[3rem] p-[0.7] sm:p-1 flex justify-center items-center gap-2 rounded-[0.5rem] bg-[#5865F2]"
+                                    href="#">
+                                    <img class="w-[48px]" src="../assets/Discord.svg" alt="Discord-logo">
+                                </a>
+                                <a class="h-[3rem] p-[0.7] sm:p-1 flex justify-center items-center gap-2 rounded-[0.5rem] bg-[#EEF0F2]"
+                                    href="#">
+                                    <img class="w-[48px]" src="../assets/Google.svg" alt="Google-logo">
+                                </a>
+                            </div>
+                            <!-- INPUTS -->
+                            <div class="mt-[2rem] flex flex-col ">
+                                <div class="flex gap-0 sm:gap-[8px] flex-col sm:flex-row">
+                                    <div class="relative w-full">
+                                        <div class="flex flex-col w-full flex-grow">
+                                            <input class="form_input w-full" type="text" name="first_name"
+                                                tid="first_name" id="first_name" placeholder="First Name *"
+                                                maxlength="25">
+                                            <div class="input_info"></div>
+                                            <label for="first_name" class="absolute top-4 opacity-0 label">First Name *
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="relative w-full">
+                                        <div class="flex flex-col w-full flex-grow">
+                                            <input class="form_input w-full" type="text" name="last_name"
+                                                tid="last_name" id="last_name" placeholder="Last Name" maxlength="25">
+                                            <div class="input_info"></div>
+                                            <label for="last_name" class="absolute top-4 opacity-0 label">Last Name
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="relative w-full">
+                                    <!-- <input class="form_input w-full" type="text" name="phone_number" > -->
+
+                                    <input class="form_input w-full" type="tel" name="phone_number" tid="phone_number"
+                                        id="phone_number" placeholder="Phone Number">
+                                    <div class="input_info"></div>
+                                    <label for="phone_number" class="absolute top-4 opacity-0 label">Phone Number
+                                    </label>
+                                </div>
+                                <div class="relative w-full">
+                                    <input class="form_input w-full" type="email" name="email" tid="email" id="email"
+                                        placeholder="Email *" maxlength="50">
+                                    <div class="input_info"></div>
+                                    <label for="email" class="absolute top-4 opacity-0 label">Email *
+                                    </label>
+                                </div>
+
+                                <div class="relative w-full">
+                                    <input class="form_input w-full" type="password" name="password" tid="password"
+                                        id="password" placeholder="Password" maxlength="128">
+                                    <div class="input_info flex flex-col sm:grid gap-2 grid-cols-2 mt-2 ">
+                                    </div>
+                                    <label for="password" class="absolute top-4 opacity-0 label">Password *
+                                    </label>
+                                    <img src="../assets/openEye.svg" alt="password eye"
+                                        class="absolute h-[20px] top-[28px] cursor-pointer eye_icon" id="password_eye">
+                                </div>
+
+                                <input type="submit" btnid="submit" type="submit" class="form_btn mt-[2rem] mb-[1rem]"
+                                    value="Sign Up" disabled />
+
+                                <p class="mx-auto text-[14px] my-[1rem] text-[#909092] text-center">By Signing up you
+                                    agree to the Academy
+                                    <a href="login" class="text-primary block sm:inline">privacy policy & Guidelines</a>
+                                </p>
+
+                                <p class="mx-auto text-[16px] my-[1rem] text-[#909092]">Have an account!
+                                    <a href="login" class="text-primary">Sign In</a>
+                                </p>
+
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="../signup.js"></script>
+</body>
+
+</html>
