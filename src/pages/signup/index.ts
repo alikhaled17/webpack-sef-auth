@@ -53,7 +53,7 @@ const LoginInputs: FormInput[] = [
   new FormInput("email", textValidator, [
     {
       condition: (value: string) => Regex.notEmpty.test(value.trim()),
-      msg: "Please enter your email.",
+      msg: "Please enter your email. ",
     },
     {
       condition: (value: string) => Regex.email.test(value.trim()),
