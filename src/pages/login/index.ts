@@ -27,10 +27,6 @@ const LoginInputs: FormInput[] = [
       condition: (value: string) => Regex.notEmpty.test(value),
       msg: "Please enter your password.",
     },
-    {
-      condition: (value: string) => Regex.passwordRegex.test(value),
-      msg: "Incorrect password. Please check and try again.",
-    },
   ]),
 ];
 
@@ -49,7 +45,7 @@ const main = () => {
     });
   }
   const SignInForm = new FormValidator("signin");
-  SignInForm.ActivateEvent("change");
+  SignInForm.ActivateEvent("keyup");
 
   // password eye handler
   document.querySelector("#password_eye").addEventListener("click", EyeHandler);
